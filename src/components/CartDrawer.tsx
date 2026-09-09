@@ -65,50 +65,56 @@ const CartDrawer: React.FC = () => {
           w-full max-w-[440px]
           flex-col
           overflow-hidden
-          border-l border-pink-200/70
-          bg-[#fff8fa]
+          border-l border-[#DFA3A3]/70
+          bg-gradient-to-b from-[#FCEAEA] via-[#F4C2C2] to-[#F9DDDD]
           shadow-[-20px_0_60px_rgba(65,8,28,0.25)]
           animate-in slide-in-from-right duration-300
         "
       >
         {/* ================= HEADER ================= */}
 
-        <div className="relative shrink-0 overflow-hidden border-b border-pink-200/60 bg-gradient-to-r from-maroon-950 via-rose-950 to-maroon-900 px-5 py-5 text-white sm:px-6">
-
+        <div
+          className="
+            relative shrink-0 overflow-hidden
+            border-b border-[#DFA3A3]/40
+            bg-gradient-to-r from-maroon-950 via-rose-950 to-maroon-900
+            px-5 py-5 text-white
+            sm:px-6
+          "
+        >
           {/* Background Decorations */}
 
-          <div className="pointer-events-none absolute -right-10 -top-12 h-36 w-36 rounded-full bg-pink-500/20 blur-2xl" />
+          <div className="pointer-events-none absolute -right-10 -top-12 h-36 w-36 rounded-full bg-[#F4C2C2]/20 blur-2xl" />
 
-          <div className="pointer-events-none absolute -bottom-16 left-10 h-28 w-28 rounded-full bg-rose-400/10 blur-2xl" />
+          <div className="pointer-events-none absolute -bottom-16 left-10 h-28 w-28 rounded-full bg-[#E8A8A8]/15 blur-2xl" />
 
           <div className="relative flex items-center justify-between">
-
             <div className="flex items-center gap-3">
-
-              <div className="grid h-11 w-11 place-items-center rounded-2xl border border-white/15 bg-white/10 backdrop-blur">
-                <ShoppingBag size={20} className="text-pink-200" />
+              <div
+                className="
+                  grid h-11 w-11 place-items-center
+                  rounded-2xl
+                  border border-white/15
+                  bg-white/10
+                  backdrop-blur
+                "
+              >
+                <ShoppingBag size={20} className="text-[#F4C2C2]" />
               </div>
 
               <div>
                 <div className="flex items-center gap-2">
-
                   <h2 className="font-serif text-2xl font-semibold">
                     Your Bag
                   </h2>
 
-                  <Sparkles
-                    size={15}
-                    className="text-pink-300"
-                  />
-
+                  <Sparkles size={15} className="text-[#F4C2C2]" />
                 </div>
 
                 <p className="mt-0.5 text-xs text-pink-100/70">
                   {itemCount} item{itemCount !== 1 ? 's' : ''} in your bag
                 </p>
-
               </div>
-
             </div>
 
             <button
@@ -128,35 +134,34 @@ const CartDrawer: React.FC = () => {
             >
               <X size={20} />
             </button>
-
           </div>
-
         </div>
 
         {/* ================= CONTENT ================= */}
 
         <div className="flex-1 overflow-y-auto px-4 py-5 sm:px-5">
-
           {/* ================= EMPTY CART ================= */}
 
           {cart.length === 0 ? (
-
             <div className="flex min-h-full items-center justify-center py-16 text-center">
-
               <div className="max-w-xs">
-
-                <div className="relative mx-auto mb-6 grid h-24 w-24 place-items-center rounded-full bg-gradient-to-br from-pink-100 to-rose-100">
-
-                  <div className="absolute inset-2 rounded-full border border-pink-200" />
+                <div
+                  className="
+                    relative mx-auto mb-6
+                    grid h-24 w-24 place-items-center
+                    rounded-full
+                    bg-gradient-to-br from-[#F9DDDD] to-[#F4C2C2]
+                  "
+                >
+                  <div className="absolute inset-2 rounded-full border border-[#DFA3A3]" />
 
                   <ShoppingBag
                     size={34}
                     className="relative text-maroon-800"
                   />
-
                 </div>
 
-                <p className="text-xs font-bold uppercase tracking-[0.22em] text-pink-600">
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-rose-800">
                   Your Collection Awaits
                 </p>
 
@@ -164,8 +169,9 @@ const CartDrawer: React.FC = () => {
                   Your bag is empty
                 </h3>
 
-                <p className="mt-3 text-sm leading-6 text-maroon-900/55">
-                  Discover elegant styles and find something beautiful for your next special moment.
+                <p className="mt-3 text-sm leading-6 text-maroon-900/60">
+                  Discover elegant styles and find something beautiful for your
+                  next special moment.
                 </p>
 
                 <Link
@@ -174,10 +180,10 @@ const CartDrawer: React.FC = () => {
                   className="
                     mt-7 inline-flex items-center gap-2
                     rounded-full
-                    bg-gradient-to-r from-rose-900 to-pink-600
+                    bg-gradient-to-r from-rose-900 to-rose-700
                     px-6 py-3.5
                     text-sm font-semibold text-white
-                    shadow-lg shadow-pink-200
+                    shadow-lg shadow-[#DFA3A3]/40
                     transition-all duration-300
                     hover:-translate-y-1
                     hover:shadow-xl
@@ -186,38 +192,30 @@ const CartDrawer: React.FC = () => {
                   Explore Collection
                   <ArrowRight size={17} />
                 </Link>
-
               </div>
-
             </div>
-
           ) : (
-
             <>
               {/* ================= CART ITEMS ================= */}
 
               <div className="space-y-4">
-
                 {cart.map((item) => (
-
                   <article
                     key={`${item.id}-${item.size}`}
                     className="
                       group relative
                       overflow-hidden
                       rounded-2xl
-                      border border-pink-200/60
-                      bg-gradient-to-br from-[#fffafd] to-pink-50/70
+                      border border-[#DFA3A3]/70
+                      bg-gradient-to-br from-[#FCEAEA] via-[#F9DDDD] to-[#F4C2C2]/60
                       p-3
                       shadow-sm
                       transition-all duration-300
-                      hover:border-pink-300
+                      hover:border-[#D39A9A]
                       hover:shadow-md
                     "
                   >
-
                     <div className="flex gap-3">
-
                       {/* Product Image */}
 
                       <Link
@@ -227,11 +225,10 @@ const CartDrawer: React.FC = () => {
                           relative h-24 w-20
                           shrink-0 overflow-hidden
                           rounded-xl
-                          border border-pink-200/70
-                          bg-pink-50
+                          border border-[#DFA3A3]/70
+                          bg-[#F9DDDD]
                         "
                       >
-
                         <Image
                           src={item.image || '/images/logo.jpeg'}
                           alt={item.name}
@@ -243,17 +240,13 @@ const CartDrawer: React.FC = () => {
                             group-hover:scale-105
                           "
                         />
-
                       </Link>
 
                       {/* Product Details */}
 
                       <div className="flex min-w-0 flex-1 flex-col justify-between">
-
                         <div>
-
                           <div className="flex items-start justify-between gap-3">
-
                             <Link
                               href={`/product/${item.id}`}
                               onClick={() => setCartDrawerOpen(false)}
@@ -262,7 +255,7 @@ const CartDrawer: React.FC = () => {
                                 font-serif text-base font-semibold
                                 text-maroon-950
                                 transition-colors
-                                hover:text-pink-600
+                                hover:text-rose-700
                               "
                             >
                               {item.name}
@@ -284,11 +277,17 @@ const CartDrawer: React.FC = () => {
                             >
                               <Trash2 size={16} />
                             </button>
-
                           </div>
 
-                          <div className="mt-1.5 inline-flex items-center rounded-full border border-pink-200 bg-pink-50 px-2.5 py-1">
-
+                          <div
+                            className="
+                              mt-1.5 inline-flex items-center
+                              rounded-full
+                              border border-[#DFA3A3]/70
+                              bg-[#F9DDDD]
+                              px-2.5 py-1
+                            "
+                          >
                             <span className="text-[10px] text-maroon-700">
                               Size:
                             </span>
@@ -296,27 +295,23 @@ const CartDrawer: React.FC = () => {
                             <span className="ml-1 text-[10px] font-bold text-maroon-950">
                               {item.size}
                             </span>
-
                           </div>
-
                         </div>
 
                         {/* Bottom Controls */}
 
                         <div className="mt-3 flex items-center justify-between gap-3">
-
                           {/* Quantity */}
 
                           <div
                             className="
                               flex items-center
                               rounded-full
-                              border border-pink-200
-                              bg-[#fff8fa]
+                              border border-[#DFA3A3]
+                              bg-[#FCEAEA]
                               p-1
                             "
                           >
-
                             <button
                               onClick={() =>
                                 decreaseQuantity(item.id, item.size)
@@ -326,7 +321,7 @@ const CartDrawer: React.FC = () => {
                                 rounded-full
                                 text-maroon-700
                                 transition
-                                hover:bg-pink-100
+                                hover:bg-[#F4C2C2]
                               "
                               aria-label="Decrease quantity"
                             >
@@ -348,19 +343,17 @@ const CartDrawer: React.FC = () => {
                                 text-white
                                 shadow-sm
                                 transition
-                                hover:bg-pink-600
+                                hover:bg-rose-700
                               "
                               aria-label="Increase quantity"
                             >
                               <Plus size={13} />
                             </button>
-
                           </div>
 
                           {/* Price */}
 
                           <div className="text-right">
-
                             <p className="text-[10px] text-maroon-900/45">
                               Total
                             </p>
@@ -371,109 +364,101 @@ const CartDrawer: React.FC = () => {
                                 'en-IN'
                               )}
                             </p>
-
                           </div>
-
                         </div>
-
                       </div>
-
                     </div>
-
                   </article>
-
                 ))}
-
               </div>
 
               {/* ================= FREE SHIPPING ================= */}
 
-              <div className="mt-6 rounded-2xl border border-pink-200 bg-gradient-to-r from-pink-50 to-rose-50 p-4">
-
+              <div
+                className="
+                  mt-6 rounded-2xl
+                  border border-[#DFA3A3]
+                  bg-gradient-to-r from-[#F9DDDD] to-[#F4C2C2]/70
+                  p-4
+                "
+              >
                 <div className="flex items-center justify-center gap-3 text-center">
-
-                  <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-maroon-900 text-pink-200">
+                  <div
+                    className="
+                      grid h-11 w-11 shrink-0 place-items-center
+                      rounded-full
+                      bg-maroon-900
+                      text-[#F4C2C2]
+                    "
+                  >
                     <Truck size={16} />
                   </div>
 
                   <div className="min-w-0">
-
                     {remainingForFreeShipping > 0 ? (
                       <>
                         <p className="text-center text-xs leading-5 text-maroon-900">
                           Add{' '}
                           <strong>
                             ₹
-                            {remainingForFreeShipping.toLocaleString(
-                              'en-IN'
-                            )}
+                            {remainingForFreeShipping.toLocaleString('en-IN')}
                           </strong>{' '}
                           more to unlock{' '}
-                          <strong className="text-pink-600">
+                          <strong className="text-rose-700">
                             FREE SHIPPING
                           </strong>{' '}
                           🎁
                         </p>
 
-                        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-pink-200">
-
+                        <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-[#E5B5B5]">
                           <div
-                            className="h-full rounded-full bg-gradient-to-r from-rose-900 to-pink-500 transition-all duration-500"
+                            className="
+                              h-full rounded-full
+                              bg-gradient-to-r from-rose-900 to-[#DFA3A3]
+                              transition-all duration-500
+                            "
                             style={{
                               width: `${shippingProgress}%`,
                             }}
                           />
-
                         </div>
-
                       </>
                     ) : (
-
                       <p className="text-center text-xs font-semibold leading-5 text-green-700">
                         🎉 Congratulations! You've unlocked FREE SHIPPING.
                       </p>
-
                     )}
-
                   </div>
-
                 </div>
-
               </div>
-
             </>
-
           )}
-
         </div>
 
         {/* ================= FOOTER ================= */}
 
         {cart.length > 0 && (
-
-          <div className="
-            shrink-0
-            border-t border-pink-200/70
-            bg-gradient-to-b from-[#fffafd] to-[#fff3f6]
-            px-5 py-5 sm:px-6
-          ">
-
+          <div
+            className="
+              shrink-0
+              border-t border-[#DFA3A3]/70
+              bg-gradient-to-b from-[#FCEAEA] to-[#F4C2C2]
+              px-5 py-5
+              sm:px-6
+            "
+          >
             {/* Price Summary */}
 
             <div className="space-y-3">
-
               <div className="flex items-center justify-between text-sm text-maroon-900/65">
-
                 <span>Subtotal</span>
 
                 <span className="font-medium">
                   ₹{subtotal.toLocaleString('en-IN')}
                 </span>
-
               </div>
 
               <div className="flex items-center justify-between text-sm text-maroon-900/65">
-
                 <span>Shipping</span>
 
                 <span
@@ -487,13 +472,10 @@ const CartDrawer: React.FC = () => {
                     ? 'FREE'
                     : `₹${shipping.toLocaleString('en-IN')}`}
                 </span>
-
               </div>
 
-              <div className="border-t border-pink-200/70 pt-3">
-
+              <div className="border-t border-[#DFA3A3]/70 pt-3">
                 <div className="flex items-center justify-between">
-
                   <span className="font-serif text-xl font-semibold text-maroon-950">
                     Total
                   </span>
@@ -501,11 +483,8 @@ const CartDrawer: React.FC = () => {
                   <span className="font-serif text-xl font-bold text-maroon-950">
                     ₹{total.toLocaleString('en-IN')}
                   </span>
-
                 </div>
-
               </div>
-
             </div>
 
             {/* Checkout Button */}
@@ -517,7 +496,7 @@ const CartDrawer: React.FC = () => {
                 group mt-5
                 flex w-full items-center justify-center gap-3
                 rounded-full
-                bg-gradient-to-r from-maroon-950 via-rose-900 to-pink-600
+                bg-gradient-to-r from-maroon-950 via-rose-900 to-rose-700
                 px-5 py-4
                 text-sm font-bold text-white
                 shadow-lg shadow-maroon-900/20
@@ -526,32 +505,25 @@ const CartDrawer: React.FC = () => {
                 hover:shadow-xl
               "
             >
-
               View Cart & Checkout
 
               <ArrowRight
                 size={18}
                 className="transition-transform duration-300 group-hover:translate-x-1"
               />
-
             </Link>
 
             {/* Security Text */}
 
             <div className="mt-4 flex items-center justify-center gap-2 text-center">
+              <ShieldCheck size={14} className="text-rose-700" />
 
-              <ShieldCheck size={14} className="text-pink-500" />
-
-              <p className="text-[10px] text-maroon-900/45">
+              <p className="text-[10px] text-maroon-900/50">
                 Secure checkout · Premium shopping experience
               </p>
-
             </div>
-
           </div>
-
         )}
-
       </aside>
     </>
   );
