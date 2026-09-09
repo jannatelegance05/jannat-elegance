@@ -26,13 +26,18 @@ const Footer: React.FC = () => {
               />
             </div>
               <div>
-                <h2 className="font-serif text-3xl tracking-wide text-white leading-none">
-                  JANNAT
-                </h2>
-                <p className="text-pink-300 text-m tracking-[5px] mt-1 uppercase">
-                  Elegance
-                </p>
-              </div>
+  <h2 className="font-serif text-3xl tracking-wide text-white leading-none">
+    JANNAT
+  </h2>
+
+  <p className="mt-1 text-pink-300 text-sm tracking-[5px] uppercase">
+    Elegance
+  </p>
+
+  <p className="mt-1 text-[9px] font-medium tracking-[2px] text-pink-100/70 uppercase">
+    Designed for the Queen within.
+  </p>
+</div>
             </div>
             <p className="text-pink-100/80 leading-7 mt-5 text-sm">
               Timeless Indian fashion designed to celebrate femininity, heritage, and contemporary elegance. Made for the queen within you.

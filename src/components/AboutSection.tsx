@@ -39,13 +39,13 @@ className="relative overflow-hidden bg-[#F4C2C2] py-20 sm:py-24"
             <Sparkles size={14} className="text-rose-800" />
           </div>
 
-          <h2 className="mt-5 font-serif text-4xl font-semibold text-maroon-950 sm:text-5xl">
-            About
+          <h2 className="mt-5 flex flex-col items-center text-center font-serif text-4xl font-semibold text-maroon-950 sm:text-5xl">
+  <span>About</span>
 
-            <span className="ml-2 bg-gradient-to-r from-rose-900 via-rose-700 to-rose-900 bg-clip-text text-transparent">
-              JANNAT ELEGANCE
-            </span>
-          </h2>
+  <span className="mt-2 bg-gradient-to-r from-rose-900 via-rose-700 to-rose-900 bg-clip-text text-transparent">
+    JANNAT ELEGANCE
+  </span>
+</h2>
 
           {/* Decorative Divider */}
 
