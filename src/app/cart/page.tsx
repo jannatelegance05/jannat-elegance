@@ -30,7 +30,7 @@ export default function CartPage() {
   // If cart is empty, show empty state
   if (cart.length === 0) {
     return (
-      <main className="min-h-[70vh] bg-[#fff8fa] flex items-center justify-center px-4 font-sans animate-fadeUp">
+      <main className="min-h-[70vh] bg-[#f4c2c2] flex items-center justify-center px-4 font-sans animate-fadeUp">
         <div className="text-center">
           <div className="w-20 h-20 rounded-full bg-maroon-50 flex items-center justify-center mx-auto mb-6">
             <ShoppingBag size={32} className="text-maroon-800" />
