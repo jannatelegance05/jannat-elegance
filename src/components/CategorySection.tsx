@@ -28,7 +28,7 @@ const styleCategories: CategoryItem[] = [
 
 const CategorySection: React.FC = () => {
   return (
-    <section className="py-16 bg-[#fff2f5]/50 border-b border-maroon-100/30">
+    <section className="py-16 bg-[#F4C2C2] border-b border-maroon-100/30">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Heading */}

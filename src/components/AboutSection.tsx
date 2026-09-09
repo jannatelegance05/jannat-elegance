@@ -15,7 +15,7 @@ const AboutSection: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-gradient-to-b from-[#F9DDDD] via-[#F4C2C2] to-[#FCEAEA] py-20 sm:py-24"
+className="relative overflow-hidden bg-[#F4C2C2] py-20 sm:py-24"
     >
       {/* ================= BACKGROUND DECORATIONS ================= */}
 
