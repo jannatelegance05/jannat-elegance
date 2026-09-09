@@ -18,27 +18,26 @@ const Footer: React.FC = () => {
           <div className="flex flex-col">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-maroon-200 shadow-sm transition-transform duration-300 group-hover:scale-105 shrink-0 relative">
-              <Image
+                <Image
                 src="/images/logo.jpeg"
                 alt="Jannat Elegance Logo"
                 fill
-                className="object-cover"
-              />
+                className="object-cover"/>
             </div>
-              <div>
-  <h2 className="font-serif text-3xl tracking-wide text-white leading-none">
-    JANNAT
-  </h2>
+          <div>
+          <h2 className="font-serif text-3xl tracking-wide text-white leading-none">
+            JANNAT
+          </h2>
 
-  <p className="mt-1 text-pink-300 text-sm tracking-[5px] uppercase">
-    Elegance
-  </p>
+          <p className="mt-1 text-pink-300 text-sm tracking-[5px] uppercase">
+            Elegance
+          </p>
+        </div>
 
-  <p className="mt-1 text-[9px] font-medium tracking-[2px] text-pink-100/70 uppercase">
+            </div>
+               <p className="mt-1 text-[9px] font-medium tracking-[2px] text-pink-100/70 uppercase">
     Designed for the Queen within.
   </p>
-</div>
-            </div>
             <p className="text-pink-100/80 leading-7 mt-5 text-sm">
               Timeless Indian fashion designed to celebrate femininity, heritage, and contemporary elegance. Made for the queen within you.
             </p>
