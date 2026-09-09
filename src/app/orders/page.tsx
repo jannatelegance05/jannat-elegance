@@ -220,7 +220,7 @@ export default function OrdersPage() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-[#fff8fa] px-4 py-12 sm:px-6">
+      <main className="min-h-screen bg-[#f4c2c2] px-4 py-12 sm:px-6">
         <div className="mx-auto max-w-5xl">
 
           <div className="animate-pulse">
@@ -282,7 +282,7 @@ export default function OrdersPage() {
   ============================================ */
 
   return (
-    <main className="min-h-screen bg-[#fff8fa] px-4 py-10 sm:px-6 sm:py-14">
+    <main className="min-h-screen bg-[#f4c2c2] px-4 py-10 sm:px-6 sm:py-14">
 
       <div className="mx-auto max-w-5xl">
 

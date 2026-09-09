@@ -50,7 +50,7 @@ return (
 <html
 lang="en"
 className={`${inter.variable} ${cormorant.variable}`}
-> <body className="min-h-screen flex flex-col font-sans bg-[#fff8fa] text-rose-950 antialiased overflow-x-hidden"> <AuthProvider> <CartProvider>
+> <body className="min-h-screen flex flex-col font-sans bg-[#f4c2c2] text-rose-950 antialiased overflow-x-hidden"> <AuthProvider> <CartProvider>
         {/* Global Website Loader */}
         <Loader />
 
@@ -65,7 +65,7 @@ className={`${inter.variable} ${cormorant.variable}`}
         {/* Header / Navbar */}
         <Suspense
           fallback={
-            <div className="h-20 bg-[#fff8fa] animate-pulse" />
+            <div className="h-20 bg-[#f4c2c2] animate-pulse" />
           }
         >
           <Navbar />

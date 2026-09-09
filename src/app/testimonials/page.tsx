@@ -194,7 +194,7 @@ export default function TestimonialsPage() {
 
 
   return (
-    <main className="min-h-screen bg-[#fff8fa]">
+    <main className="min-h-screen bg-[#f4c2c2]">
 
       {/* =====================================================
           HERO SECTION

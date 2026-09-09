@@ -227,7 +227,7 @@ export default function CheckoutPage() {
 
   if (status === "loading") {
     return (
-      <main className="grid min-h-[70vh] place-items-center bg-[#fff8fa] text-maroon-900">
+      <main className="grid min-h-[70vh] place-items-center bg-[#f4c2c2] text-maroon-900">
         Preparing secure checkout…
       </main>
     );
@@ -238,7 +238,7 @@ export default function CheckoutPage() {
   ---------------------------------- */
 
   return (
-    <main className="min-h-screen bg-[#fff8fa] py-10">
+    <main className="min-h-screen bg-[#f4c2c2] py-10">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
 
         {/* HEADER */}

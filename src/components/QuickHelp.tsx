@@ -43,7 +43,7 @@ return (
 <>
 {/* Help Panel */}
 {isOpen && ( <div className="fixed bottom-24 right-4 z-[998] w-[calc(100%-2rem)] max-w-[360px] animate-in fade-in slide-in-from-bottom-5 duration-300 sm:right-6">
-      <div className="overflow-hidden rounded-[2rem] border border-pink-100 bg-[#fff8fa] shadow-2xl shadow-rose-950/20">
+      <div className="overflow-hidden rounded-[2rem] border border-pink-100 bg-[#f4c2c2] shadow-2xl shadow-rose-950/20">
 
         {/* Header */}
         <div className="relative overflow-hidden bg-gradient-to-r from-rose-950 via-maroon-900 to-pink-700 px-6 py-6 text-white">

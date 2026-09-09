@@ -23,7 +23,7 @@ const ExploreColors = () => {
           <div className="pt-2">
             <Link
               href="/shop"
-              className="inline-block bg-[#fff8fa] text-[#4a0e17] font-semibold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 shadow-md hover:bg-pink-100 transition-all duration-300"
+              className="inline-block bg-[#f4c2c2] text-[#4a0e17] font-semibold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 shadow-md hover:bg-pink-100 transition-all duration-300"
             >
               Shop Now
             </Link>
@@ -40,7 +40,7 @@ const ExploreColors = () => {
                 idx % 2 === 1 ? "-translate-y-2 sm:-translate-y-4" : ""
               }`}
             >
-              <div className="absolute inset-0 border-2 border-[#fce7f3]/30 pointer-events-none z-10 group-hover:border-[#fff8fa] transition-colors duration-300" />
+              <div className="absolute inset-0 border-2 border-[#fce7f3]/30 pointer-events-none z-10 group-hover:border-[#f4c2c2] transition-colors duration-300" />
               
               <Image
                 src={card.image}

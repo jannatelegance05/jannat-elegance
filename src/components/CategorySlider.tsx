@@ -45,7 +45,7 @@ export default function CategorySlider() {
   if (!categories.length) return null;
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#fff8fa] via-white to-pink-50/60 py-16 sm:py-20">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#f4c2c2] via-white to-pink-50/60 py-16 sm:py-20">
 
       {/* Background Decorations */}
       <div className="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-pink-200/30 blur-3xl" />

@@ -108,14 +108,14 @@
 
 // // Loading
 // if (loading) {
-// return ( <main className="grid min-h-[60vh] place-items-center bg-[#fff8fa] text-sm text-gray-500">
+// return ( <main className="grid min-h-[60vh] place-items-center bg-[#f4c2c2] text-sm text-gray-500">
 // Loading order… </main>
 // );
 // }
 
 // // Order Not Found
 // if (!order) {
-// return ( <main className="grid min-h-[60vh] place-items-center bg-[#fff8fa]"> <div className="text-center"> <h1 className="font-serif text-3xl text-maroon-950">
+// return ( <main className="grid min-h-[60vh] place-items-center bg-[#f4c2c2]"> <div className="text-center"> <h1 className="font-serif text-3xl text-maroon-950">
 // Order not found </h1>
 
 //       <Link
@@ -142,7 +142,7 @@
 // const isCancelled = order.status === 'cancelled';
 
 // return (
-// <> <main className="min-h-screen bg-[#fff8fa] py-10 print:bg-white"> <div className="mx-auto max-w-5xl px-4 sm:px-6">
+// <> <main className="min-h-screen bg-[#f4c2c2] py-10 print:bg-white"> <div className="mx-auto max-w-5xl px-4 sm:px-6">
 
 //       {/* Top Navigation */}
 //       <div className="mb-7 flex items-center justify-between print:hidden">
@@ -888,7 +888,7 @@ export default function OrderDetailsPage() {
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-[#fff8fa] px-4 py-10 sm:px-6">
+      <main className="min-h-screen bg-[#f4c2c2] px-4 py-10 sm:px-6">
         <div className="mx-auto max-w-6xl animate-pulse">
 
           <div className="h-4 w-32 rounded bg-maroon-100" />
@@ -920,7 +920,7 @@ export default function OrderDetailsPage() {
 
   if (error || !order) {
     return (
-      <main className="grid min-h-[70vh] place-items-center bg-[#fff8fa] px-4">
+      <main className="grid min-h-[70vh] place-items-center bg-[#f4c2c2] px-4">
 
         <div className="max-w-md rounded-[2rem] border border-maroon-100 bg-white p-8 text-center shadow-sm">
 
@@ -1001,7 +1001,7 @@ export default function OrderDetailsPage() {
   ======================================================= */
 
   return (
-    <main className="min-h-screen bg-[#fff8fa] px-4 py-8 sm:px-6 sm:py-12">
+    <main className="min-h-screen bg-[#f4c2c2] px-4 py-8 sm:px-6 sm:py-12">
 
       <div className="mx-auto max-w-6xl">
 

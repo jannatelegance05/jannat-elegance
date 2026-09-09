@@ -72,14 +72,14 @@ export default function AdminShell({
 
   if (status === 'loading' || user?.role !== 'admin') {
     return (
-      <main className="grid min-h-[70vh] place-items-center bg-[#fff8fa] text-maroon-900">
+      <main className="grid min-h-[70vh] place-items-center bg-[#f4c2c2] text-maroon-900">
         Checking staff access…
       </main>
     );
   }
 
   return (
-    <main className="min-h-screen bg-[#fff8fa]">
+    <main className="min-h-screen bg-[#f4c2c2]">
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8">
         
         {/* ================= HEADER ================= */}
@@ -125,7 +125,7 @@ export default function AdminShell({
                       sm:text-xs
                       ${
                         isActive
-                          ? 'bg-[#fff8fa] text-maroon-950 shadow-md'
+                          ? 'bg-[#f4c2c2] text-maroon-950 shadow-md'
                           : 'bg-white/10 text-white hover:bg-white/20'
                       }
                     `}

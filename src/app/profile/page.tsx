@@ -408,7 +408,7 @@ export default function ProfilePage() {
 
   if (status === 'loading' || !user) {
     return (
-      <main className="grid min-h-[60vh] place-items-center bg-[#fff8fa] text-sm text-gray-500">
+      <main className="grid min-h-[60vh] place-items-center bg-[#f4c2c2] text-sm text-gray-500">
         <div className="flex flex-col items-center gap-3">
           <div className="h-8 w-8 animate-spin rounded-full border-2 border-maroon-200 border-t-maroon-800" />
           Loading profile…
@@ -423,7 +423,7 @@ export default function ProfilePage() {
 
   return (
     <>
-      <main className="min-h-screen bg-[#fff8fa] py-10 sm:py-14">
+      <main className="min-h-screen bg-[#f4c2c2] py-10 sm:py-14">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
 
           {/* HEADER */}
@@ -479,7 +479,7 @@ export default function ProfilePage() {
 
                   <div className="absolute inset-0 rounded-full bg-gradient-to-br from-pink-300 via-rose-400 to-maroon-800 p-[3px]">
 
-                    <div className="grid h-full w-full place-items-center overflow-hidden rounded-full bg-[#fff8fa]">
+                    <div className="grid h-full w-full place-items-center overflow-hidden rounded-full bg-[#f4c2c2]">
 
                       {user.avatarUrl ? (
                         <img
@@ -497,7 +497,7 @@ export default function ProfilePage() {
 
                   </div>
 
-                  <label className="absolute -bottom-1 -right-1 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border-4 border-[#fff8fa] bg-maroon-800 text-white shadow-md transition hover:scale-105 hover:bg-maroon-900">
+                  <label className="absolute -bottom-1 -right-1 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border-4 border-[#f4c2c2] bg-maroon-800 text-white shadow-md transition hover:scale-105 hover:bg-maroon-900">
 
                     <Camera size={15} />
 
@@ -588,7 +588,7 @@ export default function ProfilePage() {
                       onChange={(event) =>
                         setName(event.target.value)
                       }
-                      className="mt-2 w-full rounded-xl border border-maroon-100 bg-[#fff8fa] p-3 text-sm font-normal text-gray-800 outline-none transition focus:border-maroon-300 focus:ring-2 focus:ring-maroon-100"
+                      className="mt-2 w-full rounded-xl border border-maroon-100 bg-[#f4c2c2] p-3 text-sm font-normal text-gray-800 outline-none transition focus:border-maroon-300 focus:ring-2 focus:ring-maroon-100"
                     />
 
                   </label>
@@ -609,7 +609,7 @@ export default function ProfilePage() {
                         )
                       }
                       placeholder="10-digit number"
-                      className="mt-2 w-full rounded-xl border border-maroon-100 bg-[#fff8fa] p-3 text-sm font-normal text-gray-800 outline-none transition placeholder:text-gray-300 focus:border-maroon-300 focus:ring-2 focus:ring-maroon-100"
+                      className="mt-2 w-full rounded-xl border border-maroon-100 bg-[#f4c2c2] p-3 text-sm font-normal text-gray-800 outline-none transition placeholder:text-gray-300 focus:border-maroon-300 focus:ring-2 focus:ring-maroon-100"
                     />
 
                   </label>

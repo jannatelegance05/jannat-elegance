@@ -52,7 +52,7 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <main className="min-h-[85vh] bg-[#fff8fa] flex items-center justify-center px-4 font-sans py-12">
+    <main className="min-h-[85vh] bg-[#f4c2c2] flex items-center justify-center px-4 font-sans py-12">
       <div className="bg-white rounded-[32px] border border-maroon-100/50 p-8 sm:p-10 max-w-md w-full shadow-luxury relative animate-fadeUp">
         
         {/* Back Link */}

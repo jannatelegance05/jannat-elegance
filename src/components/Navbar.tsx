@@ -115,7 +115,7 @@ href: '/contact-us',
 },
 ];
 
-return ( <header className="sticky top-0 z-50 w-full border-b border-pink-100/80 bg-[#fff8fa]/95 shadow-[0_8px_30px_rgba(76,5,25,0.06)] backdrop-blur-xl">
+return ( <header className="sticky top-0 z-50 w-full border-b border-pink-100/80 bg-[#f4c2c2]/95 shadow-[0_8px_30px_rgba(76,5,25,0.06)] backdrop-blur-xl">
 
   {/* Top Decorative Line */}
   <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-pink-400 to-transparent" />
@@ -239,7 +239,7 @@ return ( <header className="sticky top-0 z-50 w-full border-b border-pink-100/80
           />
 
           {wishlist.length > 0 && (
-            <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full border-2 border-[#fff8fa] bg-gradient-to-br from-rose-600 to-pink-500 px-1 text-[10px] font-bold text-white shadow-sm">
+            <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full border-2 border-[#f4c2c2] bg-gradient-to-br from-rose-600 to-pink-500 px-1 text-[10px] font-bold text-white shadow-sm">
               {wishlist.length > 99 ? '99+' : wishlist.length}
             </span>
           )}
@@ -254,7 +254,7 @@ return ( <header className="sticky top-0 z-50 w-full border-b border-pink-100/80
           <ShoppingBag size={20} />
 
           {cartCount > 0 && (
-            <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full border-2 border-[#fff8fa] bg-pink-500 px-1 text-[10px] font-bold text-white shadow-sm">
+            <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full border-2 border-[#f4c2c2] bg-pink-500 px-1 text-[10px] font-bold text-white shadow-sm">
               {cartCount > 99 ? '99+' : cartCount}
             </span>
           )}

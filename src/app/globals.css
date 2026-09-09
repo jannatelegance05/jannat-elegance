@@ -4,7 +4,7 @@
 
 :root {
   --foreground: #4a0e17;
-  --background: #fff8fa;
+  --background: #f4c2c2;
 }
 
 body {
@@ -106,7 +106,7 @@ body {
 
 /* Custom transitions and luxury utility styling */
 .luxury-gradient {
-  background: linear-gradient(135deg, #fff5f7 0%, #fff8fa 100%);
+  background: linear-gradient(135deg, #fff5f7 0%, #f4c2c2 100%);
 }
 
 .luxury-button {

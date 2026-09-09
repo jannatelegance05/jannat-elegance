@@ -98,7 +98,7 @@ function HomeContent() {
   }, []);
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#fff8fa]">
+    <main className="min-h-screen overflow-hidden bg-[#f4c2c2]">
 
       {/* =====================================================
           UNAUTHORIZED ALERT
@@ -149,7 +149,7 @@ function HomeContent() {
           FEATURED PRODUCTS
       ===================================================== */}
 
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#fff8fa] via-pink-50/60 to-[#fff3f6] py-16 sm:py-24">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f4c2c2] via-pink-50/60 to-[#fff3f6] py-16 sm:py-24">
 
         {/* Background Glow */}
 
@@ -315,7 +315,7 @@ export default function Home() {
   return (
     <Suspense
       fallback={
-        <main className="min-h-screen bg-[#fff8fa]" />
+        <main className="min-h-screen bg-[#f4c2c2]" />
       }
     >
       <HomeContent />
