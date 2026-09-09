@@ -92,7 +92,7 @@ return ( <article className="group relative flex h-full flex-col overflow-hidden
 
   {/* ================= IMAGE SECTION ================= */}
 
-  <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-pink-50 via-[#f4c2c2] to-rose-100">
+  <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-br from-pink-50 via-[#FFD1DC] to-rose-100">
 
     {/* Product Image */}
 

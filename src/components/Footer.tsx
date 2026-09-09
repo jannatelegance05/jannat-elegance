@@ -164,7 +164,7 @@ const Footer: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-pink-100/80 hover:text-pink-300 transition-colors">
-                  JANNAT ELEGANCE, Noida, India
+                  JANNAT ELEGANCE, Anand 5, Sector 73, Noida - 201307, India
                 </a>
               </div>
               <div className="flex items-center gap-3">

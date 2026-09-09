@@ -112,7 +112,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#f4c2c2] py-12 sm:py-16 font-sans">
+    <main className="min-h-screen bg-[#FFD1DC] py-12 sm:py-16 font-sans">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <button
           onClick={() => router.back()}

@@ -184,7 +184,7 @@ return order?.statusHistory?.find(
 );
 };
 
-return ( <main className="min-h-screen bg-[#f4c2c2] py-8 sm:py-12"> <div className="mx-auto max-w-5xl px-4 sm:px-6">
+return ( <main className="min-h-screen bg-[#FFD1DC] py-8 sm:py-12"> <div className="mx-auto max-w-5xl px-4 sm:px-6">
 
     {/* Back Navigation */}
     <Link
@@ -489,7 +489,7 @@ return ( <main className="min-h-screen bg-[#f4c2c2] py-8 sm:py-12"> <div classNa
             order.shippingInfo?.trackingNumber) && (
             <div className="border-t border-maroon-100 pt-7">
 
-              <div className="rounded-3xl bg-gradient-to-br from-[#f4c2c2] to-pink-50 p-6">
+              <div className="rounded-3xl bg-gradient-to-br from-[#FFD1DC] to-pink-50 p-6">
 
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
 

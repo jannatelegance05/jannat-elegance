@@ -11,7 +11,7 @@ type Category = { _id: string; name: string };
 const sizes = ['S', 'M', 'L', 'XL', 'XXL'];
 
 export default function ShopPage() {
-  return <Suspense fallback={<main className="min-h-screen bg-[#f4c2c2] py-16 text-center text-sm text-gray-500">Loading designs…</main>}><ShopContent /></Suspense>;
+  return <Suspense fallback={<main className="min-h-screen bg-[#FFD1DC] py-16 text-center text-sm text-gray-500">Loading designs…</main>}><ShopContent /></Suspense>;
 }
 
 function ShopContent() {
@@ -91,7 +91,7 @@ function ShopContent() {
   const selectCategory = (value: string) => { setCategory(value); setPage(1); };
   const toggleSize = (size: string) => { setSelectedSizes((items) => items.includes(size) ? items.filter((item) => item !== size) : [...items, size]); setPage(1); };
 
-  return <main className="min-h-screen bg-[#f4c2c2] py-8 sm:py-12"><div className="mx-auto max-w-7xl px-4 sm:px-6">
+  return <main className="min-h-screen bg-[#FFD1DC] py-8 sm:py-12"><div className="mx-auto max-w-7xl px-4 sm:px-6">
     <div className="mb-7"><p className="text-xs font-bold uppercase tracking-[.2em] text-pink-600">Jannat Elegance</p><h1 className="mt-2 font-serif text-4xl text-maroon-950">{wishlistOnly ? 'My Wishlist' : 'Design Portfolio'}</h1><p className="mt-2 text-sm text-gray-500">{loading ? 'Loading designs…' : `${count} ${wishlistOnly ? 'saved design' : 'design'}${count === 1 ? '' : 's'}${activeCategory ? ` in ${activeCategory}` : ''}`}</p></div>
     <div className="flex flex-wrap gap-2 border-y border-pink-100 py-4"><button type="button" onClick={() => selectCategory('')} className={`rounded-full border px-4 py-2 text-xs font-bold transition ${!category ? 'border-maroon-850 bg-maroon-850 text-white' : 'border-pink-200 bg-white text-maroon-850 hover:bg-pink-50'}`}>All categories</button>{categories.map((item) => <button type="button" key={item._id} onClick={() => selectCategory(item._id)} className={`rounded-full border px-4 py-2 text-xs font-bold transition ${category === item._id ? 'border-maroon-850 bg-maroon-850 text-white' : 'border-pink-200 bg-white text-maroon-850 hover:bg-pink-50'}`}>{item.name}</button>)}</div>
     <div className="my-6 flex flex-col gap-3 sm:flex-row"><div className="relative flex-1"><Search className="absolute left-4 top-1/2 -translate-y-1/2 text-maroon-700" size={17} /><input value={search} onChange={(event) => { setSearch(event.target.value); setPage(1); }} placeholder="Search designs, descriptions or categories" className="w-full rounded-full border border-maroon-100 bg-white py-3 pl-11 pr-4 text-sm text-maroon-950 outline-none transition focus:border-maroon-800" /></div><button type="button" onClick={() => setFiltersOpen((open) => !open)} aria-expanded={filtersOpen} className="inline-flex items-center justify-center gap-2 rounded-full border border-pink-200 bg-pink-50 px-5 py-3 text-xs font-bold uppercase tracking-wider text-maroon-850"><SlidersHorizontal size={15} />Filters<ChevronDown size={15} className={filtersOpen ? 'rotate-180 transition-transform' : 'transition-transform'} /></button><select value={sort} onChange={(event) => { setSort(event.target.value); setPage(1); }} className="rounded-full border border-maroon-100 bg-white px-5 py-3 text-xs font-bold uppercase tracking-wider text-maroon-850 outline-none"><option value="featured">Latest</option><option value="price_asc">Price: low to high</option><option value="price_desc">Price: high to low</option></select></div>

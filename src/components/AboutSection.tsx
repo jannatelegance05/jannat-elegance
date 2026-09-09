@@ -15,11 +15,11 @@ const AboutSection: React.FC = () => {
   return (
     <section
       id="about"
-className="relative overflow-hidden bg-[#F4C2C2] py-20 sm:py-24"
+className="relative overflow-hidden bg-[#FFD1DC] py-20 sm:py-24"
     >
       {/* ================= BACKGROUND DECORATIONS ================= */}
 
-      <div className="pointer-events-none absolute -left-32 top-20 h-80 w-80 rounded-full bg-[#F4C2C2]/60 blur-3xl" />
+      <div className="pointer-events-none absolute -left-32 top-20 h-80 w-80 rounded-full bg-[#FFD1DC]/60 blur-3xl" />
 
       <div className="pointer-events-none absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-[#E8A8A8]/35 blur-3xl" />
 
@@ -73,10 +73,10 @@ className="relative overflow-hidden bg-[#F4C2C2] py-20 sm:py-24"
         <div className="grid items-stretch gap-7 lg:grid-cols-2 lg:gap-10">
           {/* ================= OUR STORY ================= */}
 
-          <div className="group relative overflow-hidden rounded-[32px] border border-[#DFA3A3]/70 bg-gradient-to-br from-[#F9DDDD] via-[#FCEAEA] to-[#F4C2C2]/70 p-7 shadow-lg shadow-[#DFA3A3]/25 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl sm:p-10 lg:p-12">
+          <div className="group relative overflow-hidden rounded-[32px] border border-[#DFA3A3]/70 bg-gradient-to-br from-[#F9DDDD] via-[#FCEAEA] to-[#FFD1DC]/70 p-7 shadow-lg shadow-[#DFA3A3]/25 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl sm:p-10 lg:p-12">
             {/* Decorative Glow */}
 
-            <div className="pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full bg-[#F4C2C2]/70 blur-3xl transition duration-500 group-hover:scale-125" />
+            <div className="pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full bg-[#FFD1DC]/70 blur-3xl transition duration-500 group-hover:scale-125" />
 
             <div className="relative">
               {/* Icon + Title */}
@@ -164,7 +164,7 @@ className="relative overflow-hidden bg-[#F4C2C2] py-20 sm:py-24"
           <div className="group relative overflow-hidden rounded-[32px] border border-maroon-800 bg-gradient-to-br from-maroon-950 via-rose-950 to-maroon-900 p-7 shadow-2xl shadow-maroon-950/20 sm:p-10 lg:p-12">
             {/* Background Glow */}
 
-            <div className="pointer-events-none absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#F4C2C2]/15 blur-3xl" />
+            <div className="pointer-events-none absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#FFD1DC]/15 blur-3xl" />
 
             <div className="pointer-events-none absolute bottom-0 left-0 h-60 w-60 rounded-full bg-[#E8A8A8]/15 blur-3xl" />
 
@@ -172,15 +172,15 @@ className="relative overflow-hidden bg-[#F4C2C2] py-20 sm:py-24"
               {/* Icon + Heading */}
 
               <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#F4C2C2]/25 bg-[#F4C2C2]/10 text-[#F4C2C2]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#FFD1DC]/25 bg-[#FFD1DC]/10 text-[#FFD1DC]">
                   <Sparkles
                     size={21}
-                    className="fill-[#F4C2C2] text-[#F4C2C2]"
+                    className="fill-[#FFD1DC] text-[#FFD1DC]"
                   />
                 </div>
 
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#F4C2C2]">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#FFD1DC]">
                     What We Believe
                   </p>
 
@@ -192,7 +192,7 @@ className="relative overflow-hidden bg-[#F4C2C2] py-20 sm:py-24"
 
               {/* Tagline */}
 
-              <p className="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-[#F4C2C2]">
+              <p className="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-[#FFD1DC]">
                 Designed With Grace. Made To Be Remembered.
               </p>
 
@@ -215,33 +215,33 @@ className="relative overflow-hidden bg-[#F4C2C2] py-20 sm:py-24"
 
               <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
                 <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 text-center backdrop-blur transition-all duration-300 hover:bg-white/10">
-                  <Sparkles size={16} className="mx-auto text-[#F4C2C2]" />
+                  <Sparkles size={16} className="mx-auto text-[#FFD1DC]" />
 
-                  <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.15em] text-[#F4C2C2]">
+                  <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.15em] text-[#FFD1DC]">
                     Timeless
                   </p>
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 text-center backdrop-blur transition-all duration-300 hover:bg-white/10">
-                  <Heart size={16} className="mx-auto text-[#F4C2C2]" />
+                  <Heart size={16} className="mx-auto text-[#FFD1DC]" />
 
-                  <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.15em] text-[#F4C2C2]">
+                  <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.15em] text-[#FFD1DC]">
                     Feminine
                   </p>
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 text-center backdrop-blur transition-all duration-300 hover:bg-white/10">
-                  <Star size={16} className="mx-auto text-[#F4C2C2]" />
+                  <Star size={16} className="mx-auto text-[#FFD1DC]" />
 
-                  <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.15em] text-[#F4C2C2]">
+                  <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.15em] text-[#FFD1DC]">
                     Elegant
                   </p>
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 text-center backdrop-blur transition-all duration-300 hover:bg-white/10">
-                  <Award size={16} className="mx-auto text-[#F4C2C2]" />
+                  <Award size={16} className="mx-auto text-[#FFD1DC]" />
 
-                  <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.15em] text-[#F4C2C2]">
+                  <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.15em] text-[#FFD1DC]">
                     Effortless
                   </p>
                 </div>
@@ -336,18 +336,18 @@ className="relative overflow-hidden bg-[#F4C2C2] py-20 sm:py-24"
         <div className="relative mt-16 overflow-hidden rounded-[36px] border border-maroon-800 bg-gradient-to-r from-maroon-950 via-rose-950 to-maroon-900 px-6 py-14 text-center shadow-2xl shadow-maroon-950/20 sm:mt-20 sm:px-12 sm:py-16 lg:px-16">
           {/* Decorations */}
 
-          <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[#F4C2C2]/15 blur-3xl" />
+          <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[#FFD1DC]/15 blur-3xl" />
 
           <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-[#E8A8A8]/15 blur-3xl" />
 
           <div className="relative">
             {/* Crown */}
 
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-[#F4C2C2]/25 bg-[#F4C2C2]/10 text-[#F4C2C2]">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-[#FFD1DC]/25 bg-[#FFD1DC]/10 text-[#FFD1DC]">
               <Crown size={25} />
             </div>
 
-            <span className="mt-6 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#F4C2C2]">
+            <span className="mt-6 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#FFD1DC]">
               Brand Promise
             </span>
 
@@ -355,7 +355,7 @@ className="relative overflow-hidden bg-[#F4C2C2] py-20 sm:py-24"
               Wear Your Elegance.
               <br className="hidden sm:block" />
 
-              <span className="text-[#F4C2C2]">Own Your Moment.</span>
+              <span className="text-[#FFD1DC]">Own Your Moment.</span>
             </h3>
 
             <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-pink-100/70 sm:text-base">

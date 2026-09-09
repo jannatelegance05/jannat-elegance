@@ -245,7 +245,7 @@ export default function ProductPage() {
 
   if (loading) {
     return (
-      <main className="grid min-h-[70vh] place-items-center bg-[#f4c2c2] text-maroon-900">
+      <main className="grid min-h-[70vh] place-items-center bg-[#FFD1DC] text-maroon-900">
         Loading design…
       </main>
     );
@@ -257,7 +257,7 @@ export default function ProductPage() {
 
   if (!product) {
     return (
-      <main className="grid min-h-[70vh] place-items-center bg-[#f4c2c2] text-center">
+      <main className="grid min-h-[70vh] place-items-center bg-[#FFD1DC] text-center">
         <div>
           <h1 className="font-serif text-3xl text-maroon-950">
             Design not found
@@ -361,7 +361,7 @@ export default function ProductPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#f4c2c2] py-8 sm:py-12">
+    <main className="min-h-screen bg-[#FFD1DC] py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
         {/* ================= BACK BUTTON ================= */}

@@ -171,7 +171,7 @@ export default function ChangePasswordModal({
           overflow-hidden
           rounded-[24px]
           border border-maroon-100
-          bg-[#f4c2c2]
+          bg-[#FFD1DC]
           shadow-2xl
           animate-in fade-in zoom-in-95
           duration-200

@@ -107,7 +107,7 @@ export default function SignupPage() {
   };
 
   return (
-    <main className="min-h-[90vh] bg-[#f4c2c2] flex items-center justify-center px-4 font-sans py-12">
+    <main className="min-h-[90vh] bg-[#FFD1DC] flex items-center justify-center px-4 font-sans py-12">
       <div className="bg-white rounded-[32px] border border-maroon-100/50 p-8 sm:p-10 max-w-lg w-full shadow-luxury relative animate-fadeUp">
         
         {/* Back link */}

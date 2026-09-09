@@ -123,7 +123,7 @@ export default function DeleteAccountModal({
           overflow-hidden
           rounded-[24px]
           border border-red-100/80
-          bg-[#f4c2c2]
+          bg-[#FFD1DC]
           shadow-2xl
           animate-in fade-in zoom-in-95
           duration-200

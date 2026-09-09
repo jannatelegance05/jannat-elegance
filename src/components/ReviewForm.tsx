@@ -170,7 +170,7 @@ export default function ReviewForm({
 
           {/* Product */}
 
-          <div className="rounded-2xl bg-[#f4c2c2] p-4">
+          <div className="rounded-2xl bg-[#FFD1DC] p-4">
 
             <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-pink-600">
               Reviewing

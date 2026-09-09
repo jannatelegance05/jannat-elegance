@@ -12,7 +12,7 @@ export default function VideoSection({
   poster,
 }: VideoSectionProps) {
   return (
-    <section className="relative overflow-hidden bg-[#f4c2c2] py-10 sm:py-14">
+    <section className="relative overflow-hidden bg-[#FFD1DC] py-10 sm:py-14">
 
       {/* Background Glow */}
       <div className="pointer-events-none absolute left-0 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-pink-200/20 blur-3xl" />

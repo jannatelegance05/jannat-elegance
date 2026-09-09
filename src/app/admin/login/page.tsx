@@ -38,7 +38,7 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <main className="min-h-[85vh] bg-[#fff8fa] flex items-center justify-center px-4 py-12 font-sans">
+    <main className="min-h-[85vh] bg-[#FFD1DC] flex items-center justify-center px-4 py-12 font-sans">
       <div className="bg-white rounded-[32px] border border-maroon-100/50 p-8 sm:p-10 max-w-md w-full shadow-luxury relative animate-fadeUp">
         <Link href="/" className="absolute top-6 left-6 text-xs font-bold uppercase tracking-wider text-gray-400 hover:text-maroon-800 transition flex items-center gap-1.5"><ArrowLeft size={13} /> Home</Link>
         <div className="text-center mt-4 mb-8">

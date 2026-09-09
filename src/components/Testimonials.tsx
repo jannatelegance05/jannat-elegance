@@ -109,7 +109,7 @@ export default function Testimonials({
     testimonials.length > 3;
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#f4c2c2] via-white to-[#f4c2c2] py-20 sm:py-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#FFD1DC] via-white to-[#FFD1DC] py-20 sm:py-24">
 
       {/* ================= BACKGROUND DECORATION ================= */}
 
@@ -279,7 +279,7 @@ export default function Testimonials({
                       rounded-full
                       border
                       border-pink-100
-                      bg-[#f4c2c2]
+                      bg-[#FFD1DC]
                       text-pink-400
                       transition-all
                       duration-300

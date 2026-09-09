@@ -66,7 +66,7 @@ const CartDrawer: React.FC = () => {
           flex-col
           overflow-hidden
           border-l border-[#DFA3A3]/70
-          bg-gradient-to-b from-[#FCEAEA] via-[#F4C2C2] to-[#F9DDDD]
+          bg-gradient-to-b from-[#FCEAEA] via-[#FFD1DC] to-[#F9DDDD]
           shadow-[-20px_0_60px_rgba(65,8,28,0.25)]
           animate-in slide-in-from-right duration-300
         "
@@ -84,7 +84,7 @@ const CartDrawer: React.FC = () => {
         >
           {/* Background Decorations */}
 
-          <div className="pointer-events-none absolute -right-10 -top-12 h-36 w-36 rounded-full bg-[#F4C2C2]/20 blur-2xl" />
+          <div className="pointer-events-none absolute -right-10 -top-12 h-36 w-36 rounded-full bg-[#FFD1DC]/20 blur-2xl" />
 
           <div className="pointer-events-none absolute -bottom-16 left-10 h-28 w-28 rounded-full bg-[#E8A8A8]/15 blur-2xl" />
 
@@ -99,7 +99,7 @@ const CartDrawer: React.FC = () => {
                   backdrop-blur
                 "
               >
-                <ShoppingBag size={20} className="text-[#F4C2C2]" />
+                <ShoppingBag size={20} className="text-[#FFD1DC]" />
               </div>
 
               <div>
@@ -108,7 +108,7 @@ const CartDrawer: React.FC = () => {
                     Your Bag
                   </h2>
 
-                  <Sparkles size={15} className="text-[#F4C2C2]" />
+                  <Sparkles size={15} className="text-[#FFD1DC]" />
                 </div>
 
                 <p className="mt-0.5 text-xs text-pink-100/70">
@@ -150,7 +150,7 @@ const CartDrawer: React.FC = () => {
                     relative mx-auto mb-6
                     grid h-24 w-24 place-items-center
                     rounded-full
-                    bg-gradient-to-br from-[#F9DDDD] to-[#F4C2C2]
+                    bg-gradient-to-br from-[#F9DDDD] to-[#FFD1DC]
                   "
                 >
                   <div className="absolute inset-2 rounded-full border border-[#DFA3A3]" />
@@ -207,7 +207,7 @@ const CartDrawer: React.FC = () => {
                       overflow-hidden
                       rounded-2xl
                       border border-[#DFA3A3]/70
-                      bg-gradient-to-br from-[#FCEAEA] via-[#F9DDDD] to-[#F4C2C2]/60
+                      bg-gradient-to-br from-[#FCEAEA] via-[#F9DDDD] to-[#FFD1DC]/60
                       p-3
                       shadow-sm
                       transition-all duration-300
@@ -321,7 +321,7 @@ const CartDrawer: React.FC = () => {
                                 rounded-full
                                 text-maroon-700
                                 transition
-                                hover:bg-[#F4C2C2]
+                                hover:bg-[#FFD1DC]
                               "
                               aria-label="Decrease quantity"
                             >
@@ -378,7 +378,7 @@ const CartDrawer: React.FC = () => {
                 className="
                   mt-6 rounded-2xl
                   border border-[#DFA3A3]
-                  bg-gradient-to-r from-[#F9DDDD] to-[#F4C2C2]/70
+                  bg-gradient-to-r from-[#F9DDDD] to-[#FFD1DC]/70
                   p-4
                 "
               >
@@ -388,7 +388,7 @@ const CartDrawer: React.FC = () => {
                       grid h-11 w-11 shrink-0 place-items-center
                       rounded-full
                       bg-maroon-900
-                      text-[#F4C2C2]
+                      text-[#FFD1DC]
                     "
                   >
                     <Truck size={16} />
@@ -442,7 +442,7 @@ const CartDrawer: React.FC = () => {
             className="
               shrink-0
               border-t border-[#DFA3A3]/70
-              bg-gradient-to-b from-[#FCEAEA] to-[#F4C2C2]
+              bg-gradient-to-b from-[#FCEAEA] to-[#FFD1DC]
               px-5 py-5
               sm:px-6
             "

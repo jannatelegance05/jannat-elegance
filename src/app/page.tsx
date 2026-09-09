@@ -98,7 +98,7 @@ function HomeContent() {
   }, []);
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#f4c2c2]">
+    <main className="min-h-screen overflow-hidden bg-[#FFD1DC]">
 
       {/* =====================================================
           UNAUTHORIZED ALERT
@@ -149,7 +149,7 @@ function HomeContent() {
           FEATURED PRODUCTS
       ===================================================== */}
 
-      <section className="relative overflow-hidden bg-[#F4C2C2] py-16 sm:py-24">
+      <section className="relative overflow-hidden bg-[#FFD1DC] py-16 sm:py-24">
 
   {/* Background Glow */}
 
@@ -246,7 +246,7 @@ function HomeContent() {
 
       <div className="mx-auto max-w-md rounded-3xl border border-[#DFA3A3] bg-[#F9DDDD]/80 px-6 py-12 text-center shadow-sm backdrop-blur">
 
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#F4C2C2]">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#FFD1DC]">
 
           <Sparkles
             size={24}
@@ -315,7 +315,7 @@ export default function Home() {
   return (
     <Suspense
       fallback={
-        <main className="min-h-screen bg-[#f4c2c2]" />
+        <main className="min-h-screen bg-[#FFD1DC]" />
       }
     >
       <HomeContent />

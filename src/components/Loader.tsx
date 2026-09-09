@@ -30,7 +30,7 @@ if (!visible) return null;
 
 return (
 <div
-className={`fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-[#F4C2C2] transition-all duration-700 ${
+className={`fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-[#FFD1DC] transition-all duration-700 ${
         fadeOut
           ? 'pointer-events-none scale-105 opacity-0'
           : 'scale-100 opacity-100'

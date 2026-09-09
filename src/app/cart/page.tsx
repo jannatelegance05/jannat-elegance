@@ -30,7 +30,7 @@ export default function CartPage() {
   // If cart is empty, show empty state
   if (cart.length === 0) {
     return (
-      <main className="min-h-[70vh] bg-[#f4c2c2] flex items-center justify-center px-4 font-sans animate-fadeUp">
+      <main className="min-h-[70vh] bg-[#FFD1DC] flex items-center justify-center px-4 font-sans animate-fadeUp">
         <div className="text-center">
           <div className="w-20 h-20 rounded-full bg-maroon-50 flex items-center justify-center mx-auto mb-6">
             <ShoppingBag size={32} className="text-maroon-800" />
@@ -55,7 +55,7 @@ export default function CartPage() {
   }
 
   return (
-    <main className="bg-[#f4c2c2] min-h-screen py-10 sm:py-16 font-sans">
+    <main className="bg-[#FFD1DC] min-h-screen py-10 sm:py-16 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Navigation Step Breadcrumb */}
         <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-400 mb-8 select-none">

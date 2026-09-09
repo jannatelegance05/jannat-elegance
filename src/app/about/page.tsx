@@ -68,13 +68,13 @@ const reasons = [
 ];
 
 export default function AboutPage() {
-return ( <main className="min-h-screen overflow-hidden bg-[#f4c2c2] text-maroon-950">
+return ( <main className="min-h-screen overflow-hidden bg-[#FFD1DC] text-maroon-950">
 
   {/* ================= HERO ================= */}
   <section className="relative isolate overflow-hidden">
 
     {/* Background Decorations */}
-    <div className="absolute inset-0 bg-gradient-to-br from-pink-100 via-[#f4c2c2] to-rose-100" />
+    <div className="absolute inset-0 bg-gradient-to-br from-pink-100 via-[#FFD1DC] to-rose-100" />
 
     <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-pink-300/20 blur-3xl" />
 
@@ -519,7 +519,7 @@ return ( <main className="min-h-screen overflow-hidden bg-[#f4c2c2] text-maroon-
   </section>
 
   {/* ================= FOUNDER ================= */}
-  <section className="relative overflow-hidden bg-gradient-to-br from-pink-100 via-[#f4c2c2] to-rose-100 py-20">
+  <section className="relative overflow-hidden bg-gradient-to-br from-pink-100 via-[#FFD1DC] to-rose-100 py-20">
 
     <div className="absolute -left-32 top-0 h-96 w-96 rounded-full bg-pink-300/20 blur-3xl" />
 
