@@ -15,34 +15,34 @@ const AboutSection: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-gradient-to-b from-[#fff8fa] via-pink-50/70 to-[#fff3f6] py-20 sm:py-24"
+      className="relative overflow-hidden bg-gradient-to-b from-[#F9DDDD] via-[#F4C2C2] to-[#FCEAEA] py-20 sm:py-24"
     >
       {/* ================= BACKGROUND DECORATIONS ================= */}
 
-      <div className="pointer-events-none absolute -left-32 top-20 h-80 w-80 rounded-full bg-pink-200/30 blur-3xl" />
+      <div className="pointer-events-none absolute -left-32 top-20 h-80 w-80 rounded-full bg-[#F4C2C2]/60 blur-3xl" />
 
-      <div className="pointer-events-none absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-rose-200/25 blur-3xl" />
+      <div className="pointer-events-none absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-[#E8A8A8]/35 blur-3xl" />
 
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-pink-100/30 blur-3xl" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/25 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* ================= SECTION HEADER ================= */}
 
         <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-20">
-          <div className="inline-flex items-center gap-2 rounded-full border border-pink-200 bg-pink-50/80 px-4 py-2 shadow-sm backdrop-blur">
-            <Sparkles size={14} className="text-pink-600" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#DFA3A3] bg-[#F9DDDD]/80 px-4 py-2 shadow-sm backdrop-blur">
+            <Sparkles size={14} className="text-rose-800" />
 
-            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-pink-600">
+            <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-rose-800">
               Our Identity
             </span>
 
-            <Sparkles size={14} className="text-pink-600" />
+            <Sparkles size={14} className="text-rose-800" />
           </div>
 
           <h2 className="mt-5 font-serif text-4xl font-semibold text-maroon-950 sm:text-5xl">
             About
 
-            <span className="ml-2 bg-gradient-to-r from-rose-900 via-pink-600 to-rose-800 bg-clip-text text-transparent">
+            <span className="ml-2 bg-gradient-to-r from-rose-900 via-rose-700 to-rose-900 bg-clip-text text-transparent">
               JANNAT ELEGANCE
             </span>
           </h2>
@@ -50,18 +50,18 @@ const AboutSection: React.FC = () => {
           {/* Decorative Divider */}
 
           <div className="mx-auto mt-6 flex items-center justify-center gap-3">
-            <span className="h-px w-10 bg-gradient-to-r from-transparent to-pink-300" />
+            <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#DFA3A3]" />
 
             <div className="flex gap-1">
-              <span className="h-1.5 w-1.5 rounded-full bg-pink-400" />
-              <span className="h-2 w-2 rounded-full bg-rose-700" />
-              <span className="h-1.5 w-1.5 rounded-full bg-pink-400" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#DFA3A3]" />
+              <span className="h-2 w-2 rounded-full bg-rose-800" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#DFA3A3]" />
             </div>
 
-            <span className="h-px w-10 bg-gradient-to-l from-transparent to-pink-300" />
+            <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#DFA3A3]" />
           </div>
 
-          <p className="mt-5 text-sm leading-7 text-maroon-900/60 sm:text-base">
+          <p className="mt-5 text-sm leading-7 text-maroon-900/70 sm:text-base">
             A celebration of timeless Indian fashion, feminine grace and
             contemporary elegance—created for every woman who deserves to feel
             beautiful, confident and effortlessly elegant.
@@ -73,21 +73,21 @@ const AboutSection: React.FC = () => {
         <div className="grid items-stretch gap-7 lg:grid-cols-2 lg:gap-10">
           {/* ================= OUR STORY ================= */}
 
-          <div className="group relative overflow-hidden rounded-[32px] border border-pink-200/70 bg-gradient-to-br from-pink-50 via-[#fff8fa] to-rose-50/80 p-7 shadow-lg shadow-pink-100/50 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl sm:p-10 lg:p-12">
+          <div className="group relative overflow-hidden rounded-[32px] border border-[#DFA3A3]/70 bg-gradient-to-br from-[#F9DDDD] via-[#FCEAEA] to-[#F4C2C2]/70 p-7 shadow-lg shadow-[#DFA3A3]/25 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl sm:p-10 lg:p-12">
             {/* Decorative Glow */}
 
-            <div className="pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full bg-pink-200/30 blur-3xl transition duration-500 group-hover:scale-125" />
+            <div className="pointer-events-none absolute -right-20 -top-20 h-52 w-52 rounded-full bg-[#F4C2C2]/70 blur-3xl transition duration-500 group-hover:scale-125" />
 
             <div className="relative">
               {/* Icon + Title */}
 
               <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-900 to-pink-600 text-white shadow-lg shadow-pink-200">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-900 to-rose-700 text-white shadow-lg shadow-[#DFA3A3]/40">
                   <Heart size={21} className="fill-white text-white" />
                 </div>
 
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-pink-600">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-rose-800">
                     The Beginning
                   </p>
 
@@ -99,7 +99,7 @@ const AboutSection: React.FC = () => {
 
               {/* Content */}
 
-              <div className="mt-8 space-y-5 text-sm leading-8 text-maroon-900/70 sm:text-base">
+              <div className="mt-8 space-y-5 text-sm leading-8 text-maroon-900/75 sm:text-base">
                 <p>
                   Jannat Elegance was born from a love for timeless Indian
                   fashion and the belief that every woman deserves to feel
@@ -121,8 +121,8 @@ const AboutSection: React.FC = () => {
 
               {/* Brand Feeling */}
 
-              <div className="mt-9 border-t border-pink-200/70 pt-7">
-                <div className="rounded-2xl border border-pink-100 bg-pink-100/40 p-5">
+              <div className="mt-9 border-t border-[#DFA3A3]/70 pt-7">
+                <div className="rounded-2xl border border-[#E5B5B5] bg-white/30 p-5">
                   <p className="font-serif text-xl leading-8 italic text-maroon-900 sm:text-2xl">
                     Jannat Elegance is more than clothing.
                   </p>
@@ -146,7 +146,7 @@ const AboutSection: React.FC = () => {
               <div className="mt-8">
                 <Link
                   href="/about"
-                  className="group inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.15em] text-rose-800 transition-colors hover:text-pink-600"
+                  className="group inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.15em] text-rose-800 transition-colors hover:text-rose-600"
                 >
                   Discover Our Story
 
@@ -164,23 +164,23 @@ const AboutSection: React.FC = () => {
           <div className="group relative overflow-hidden rounded-[32px] border border-maroon-800 bg-gradient-to-br from-maroon-950 via-rose-950 to-maroon-900 p-7 shadow-2xl shadow-maroon-950/20 sm:p-10 lg:p-12">
             {/* Background Glow */}
 
-            <div className="pointer-events-none absolute -right-20 top-0 h-72 w-72 rounded-full bg-pink-500/10 blur-3xl" />
+            <div className="pointer-events-none absolute -right-20 top-0 h-72 w-72 rounded-full bg-[#F4C2C2]/15 blur-3xl" />
 
-            <div className="pointer-events-none absolute bottom-0 left-0 h-60 w-60 rounded-full bg-rose-500/10 blur-3xl" />
+            <div className="pointer-events-none absolute bottom-0 left-0 h-60 w-60 rounded-full bg-[#E8A8A8]/15 blur-3xl" />
 
             <div className="relative">
               {/* Icon + Heading */}
 
               <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-pink-300/20 bg-pink-400/10 text-pink-300">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#F4C2C2]/25 bg-[#F4C2C2]/10 text-[#F4C2C2]">
                   <Sparkles
                     size={21}
-                    className="fill-pink-300 text-pink-300"
+                    className="fill-[#F4C2C2] text-[#F4C2C2]"
                   />
                 </div>
 
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-pink-400">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#F4C2C2]">
                     What We Believe
                   </p>
 
@@ -192,7 +192,7 @@ const AboutSection: React.FC = () => {
 
               {/* Tagline */}
 
-              <p className="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-pink-300">
+              <p className="mt-8 text-xs font-bold uppercase tracking-[0.2em] text-[#F4C2C2]">
                 Designed With Grace. Made To Be Remembered.
               </p>
 
@@ -215,36 +215,33 @@ const AboutSection: React.FC = () => {
 
               <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
                 <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 text-center backdrop-blur transition-all duration-300 hover:bg-white/10">
-                  <Sparkles
-                    size={16}
-                    className="mx-auto text-pink-300"
-                  />
+                  <Sparkles size={16} className="mx-auto text-[#F4C2C2]" />
 
-                  <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.15em] text-pink-200">
+                  <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.15em] text-[#F4C2C2]">
                     Timeless
                   </p>
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 text-center backdrop-blur transition-all duration-300 hover:bg-white/10">
-                  <Heart size={16} className="mx-auto text-pink-300" />
+                  <Heart size={16} className="mx-auto text-[#F4C2C2]" />
 
-                  <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.15em] text-pink-200">
+                  <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.15em] text-[#F4C2C2]">
                     Feminine
                   </p>
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 text-center backdrop-blur transition-all duration-300 hover:bg-white/10">
-                  <Star size={16} className="mx-auto text-pink-300" />
+                  <Star size={16} className="mx-auto text-[#F4C2C2]" />
 
-                  <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.15em] text-pink-200">
+                  <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.15em] text-[#F4C2C2]">
                     Elegant
                   </p>
                 </div>
 
                 <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 text-center backdrop-blur transition-all duration-300 hover:bg-white/10">
-                  <Award size={16} className="mx-auto text-pink-300" />
+                  <Award size={16} className="mx-auto text-[#F4C2C2]" />
 
-                  <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.15em] text-pink-200">
+                  <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.15em] text-[#F4C2C2]">
                     Effortless
                   </p>
                 </div>
@@ -257,7 +254,7 @@ const AboutSection: React.FC = () => {
 
         <div className="mt-14 sm:mt-20">
           <div className="mb-9 text-center">
-            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-pink-600">
+            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-rose-800">
               Why Jannat Elegance?
             </p>
 
@@ -269,7 +266,7 @@ const AboutSection: React.FC = () => {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {/* ================= CARD 1 ================= */}
 
-            <div className="group rounded-3xl border border-pink-200/60 bg-gradient-to-br from-pink-50/80 to-rose-50/50 p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-pink-300 hover:shadow-xl hover:shadow-pink-100">
+            <div className="group rounded-3xl border border-[#DFA3A3]/60 bg-gradient-to-br from-[#F9DDDD]/90 to-[#FCEAEA]/70 p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#D39A9A] hover:shadow-xl hover:shadow-[#DFA3A3]/30">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-maroon-900 to-rose-800 text-white shadow-lg">
                 <Award size={20} />
               </div>
@@ -278,15 +275,15 @@ const AboutSection: React.FC = () => {
                 Thoughtful Designs
               </h4>
 
-              <p className="mt-3 text-xs leading-6 text-maroon-900/60">
+              <p className="mt-3 text-xs leading-6 text-maroon-900/65">
                 Every piece is created with an eye for elegance and detail.
               </p>
             </div>
 
             {/* ================= CARD 2 ================= */}
 
-            <div className="group rounded-3xl border border-pink-200/60 bg-gradient-to-br from-pink-50/80 to-rose-50/50 p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-pink-300 hover:shadow-xl hover:shadow-pink-100">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-900 to-pink-600 text-white shadow-lg">
+            <div className="group rounded-3xl border border-[#DFA3A3]/60 bg-gradient-to-br from-[#F9DDDD]/90 to-[#FCEAEA]/70 p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#D39A9A] hover:shadow-xl hover:shadow-[#DFA3A3]/30">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-900 to-rose-700 text-white shadow-lg">
                 <Star size={20} />
               </div>
 
@@ -294,15 +291,15 @@ const AboutSection: React.FC = () => {
                 Premium Feel
               </h4>
 
-              <p className="mt-3 text-xs leading-6 text-maroon-900/60">
+              <p className="mt-3 text-xs leading-6 text-maroon-900/65">
                 We focus on beautiful fabrics, refined finishing and quality.
               </p>
             </div>
 
             {/* ================= CARD 3 ================= */}
 
-            <div className="group rounded-3xl border border-pink-200/60 bg-gradient-to-br from-pink-50/80 to-rose-50/50 p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-pink-300 hover:shadow-xl hover:shadow-pink-100">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-pink-500 to-rose-800 text-white shadow-lg">
+            <div className="group rounded-3xl border border-[#DFA3A3]/60 bg-gradient-to-br from-[#F9DDDD]/90 to-[#FCEAEA]/70 p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#D39A9A] hover:shadow-xl hover:shadow-[#DFA3A3]/30">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#DFA3A3] to-rose-800 text-white shadow-lg">
                 <Sparkles size={20} />
               </div>
 
@@ -310,15 +307,15 @@ const AboutSection: React.FC = () => {
                 Timeless Style
               </h4>
 
-              <p className="mt-3 text-xs leading-6 text-maroon-900/60">
+              <p className="mt-3 text-xs leading-6 text-maroon-900/65">
                 Designed to remain elegant beyond fleeting trends.
               </p>
             </div>
 
             {/* ================= CARD 4 ================= */}
 
-            <div className="group rounded-3xl border border-pink-200/60 bg-gradient-to-br from-pink-50/80 to-rose-50/50 p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-pink-300 hover:shadow-xl hover:shadow-pink-100">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-950 to-pink-600 text-white shadow-lg">
+            <div className="group rounded-3xl border border-[#DFA3A3]/60 bg-gradient-to-br from-[#F9DDDD]/90 to-[#FCEAEA]/70 p-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#D39A9A] hover:shadow-xl hover:shadow-[#DFA3A3]/30">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-950 to-rose-700 text-white shadow-lg">
                 <Heart size={20} className="fill-white" />
               </div>
 
@@ -326,7 +323,7 @@ const AboutSection: React.FC = () => {
                 Made for Her
               </h4>
 
-              <p className="mt-3 text-xs leading-6 text-maroon-900/60">
+              <p className="mt-3 text-xs leading-6 text-maroon-900/65">
                 Because every woman deserves to feel confident in what she
                 wears.
               </p>
@@ -339,18 +336,18 @@ const AboutSection: React.FC = () => {
         <div className="relative mt-16 overflow-hidden rounded-[36px] border border-maroon-800 bg-gradient-to-r from-maroon-950 via-rose-950 to-maroon-900 px-6 py-14 text-center shadow-2xl shadow-maroon-950/20 sm:mt-20 sm:px-12 sm:py-16 lg:px-16">
           {/* Decorations */}
 
-          <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-pink-400/10 blur-3xl" />
+          <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[#F4C2C2]/15 blur-3xl" />
 
-          <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-rose-500/10 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-[#E8A8A8]/15 blur-3xl" />
 
           <div className="relative">
             {/* Crown */}
 
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-pink-300/20 bg-pink-400/10 text-pink-300">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-[#F4C2C2]/25 bg-[#F4C2C2]/10 text-[#F4C2C2]">
               <Crown size={25} />
             </div>
 
-            <span className="mt-6 block text-[10px] font-bold uppercase tracking-[0.3em] text-pink-300">
+            <span className="mt-6 block text-[10px] font-bold uppercase tracking-[0.3em] text-[#F4C2C2]">
               Brand Promise
             </span>
 
@@ -358,7 +355,7 @@ const AboutSection: React.FC = () => {
               Wear Your Elegance.
               <br className="hidden sm:block" />
 
-              <span className="text-pink-300">Own Your Moment.</span>
+              <span className="text-[#F4C2C2]">Own Your Moment.</span>
             </h3>
 
             <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-pink-100/70 sm:text-base">
@@ -372,7 +369,7 @@ const AboutSection: React.FC = () => {
             <div className="mt-9 flex justify-center">
               <Link
                 href="/collections"
-                className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-pink-500 to-rose-700 px-7 py-4 text-xs font-bold uppercase tracking-[0.15em] text-white shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#DFA3A3] to-rose-700 px-7 py-4 text-xs font-bold uppercase tracking-[0.15em] text-white shadow-xl shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
               >
                 Shop Now
 
