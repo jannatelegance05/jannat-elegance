@@ -7,7 +7,7 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative overflow-hidden luxury-gradient border-b border-maroon-100/50">
+    <section className="relative overflow-hidden bg-[#F4C2C2] border-b border-maroon-100/50">
       {/* Background Glow Blobs */}
       <div className="absolute -top-20 -right-20 w-80 h-80 bg-pink-200/30 rounded-full blur-3xl" />
       <div className="absolute bottom-0 -left-20 w-96 h-96 bg-maroon-100/20 rounded-full blur-3xl" />
