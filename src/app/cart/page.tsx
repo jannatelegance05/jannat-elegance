@@ -55,7 +55,7 @@ export default function CartPage() {
   }
 
   return (
-    <main className="bg-[#fff8fa] min-h-screen py-10 sm:py-16 font-sans">
+    <main className="bg-[#f4c2c2] min-h-screen py-10 sm:py-16 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Navigation Step Breadcrumb */}
         <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-400 mb-8 select-none">
