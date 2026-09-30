@@ -10,11 +10,18 @@ declare global {
   interface Window {
     Razorpay?: new (
       options: Record<string, unknown>
-    ) => {
-      open: () => void;
-    };
+    ) => RazorpayInstance;
   }
 }
+
+type RazorpayInstance = {
+  open: () => void;
+
+  on: (
+    event: "payment.failed",
+    handler: (response: RazorpayPaymentFailedResponse) => void
+  ) => void;
+};
 
 type GuestDetails = {
   name: string;
@@ -31,6 +38,20 @@ type RazorpayPaymentResponse = {
   razorpay_order_id: string;
   razorpay_payment_id: string;
   razorpay_signature: string;
+};
+
+type RazorpayPaymentFailedResponse = {
+  error?: {
+    code?: string;
+    description?: string;
+    source?: string;
+    step?: string;
+    reason?: string;
+    metadata?: {
+      order_id?: string;
+      payment_id?: string;
+    };
+  };
 };
 
 const blankGuestDetails: GuestDetails = {
@@ -59,17 +80,26 @@ const loadRazorpay = () =>
       existingScript.addEventListener("load", () =>
         resolve(Boolean(window.Razorpay))
       );
-      existingScript.addEventListener("error", () => resolve(false));
+
+      existingScript.addEventListener("error", () =>
+        resolve(false)
+      );
+
       return;
     }
 
     const script = document.createElement("script");
 
-    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.src =
+      "https://checkout.razorpay.com/v1/checkout.js";
+
     script.async = true;
 
-    script.onload = () => resolve(Boolean(window.Razorpay));
-    script.onerror = () => resolve(false);
+    script.onload = () =>
+      resolve(Boolean(window.Razorpay));
+
+    script.onerror = () =>
+      resolve(false);
 
     document.body.appendChild(script);
   });
@@ -85,11 +115,19 @@ export default function CheckoutPage() {
     clearCart,
   } = useCart();
 
-  const [guest, setGuest] = useState<GuestDetails>(blankGuestDetails);
-  const [error, setError] = useState("");
-  const [paying, setPaying] = useState(false);
+  const [guest, setGuest] =
+    useState<GuestDetails>(
+      blankGuestDetails
+    );
 
-  const idempotencyKey = useRef("");
+  const [error, setError] =
+    useState("");
+
+  const [paying, setPaying] =
+    useState(false);
+
+  const idempotencyKey =
+    useRef("");
 
   const updateGuest = (
     field: keyof GuestDetails,
@@ -101,7 +139,9 @@ export default function CheckoutPage() {
     }));
   };
 
-  const startCheckout = async (event: FormEvent<HTMLFormElement>) => {
+  const startCheckout = async (
+    event: FormEvent<HTMLFormElement>
+  ) => {
     event.preventDefault();
 
     setError("");
@@ -112,88 +152,150 @@ export default function CheckoutPage() {
     }
 
     if (!guest.name.trim()) {
-      setError("Please enter your full name.");
+      setError(
+        "Please enter your full name."
+      );
       return;
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(guest.email.trim())) {
-      setError("Please enter a valid email address.");
+    if (
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+        guest.email.trim()
+      )
+    ) {
+      setError(
+        "Please enter a valid email address."
+      );
       return;
     }
 
     if (!/^\d{10}$/.test(guest.phone)) {
-      setError("Please enter a valid 10-digit phone number.");
+      setError(
+        "Please enter a valid 10-digit phone number."
+      );
       return;
     }
 
-    if (guest.addressLine.trim().length < 8) {
-      setError("Please enter your complete delivery address.");
+    if (
+      guest.addressLine.trim().length < 8
+    ) {
+      setError(
+        "Please enter your complete delivery address."
+      );
       return;
     }
 
     if (guest.city.trim().length < 2) {
-      setError("Please enter your city.");
+      setError(
+        "Please enter your city."
+      );
       return;
     }
 
     if (guest.state.trim().length < 2) {
-      setError("Please enter your state.");
+      setError(
+        "Please enter your state."
+      );
       return;
     }
 
     if (!/^\d{6}$/.test(guest.pincode)) {
-      setError("Please enter a valid 6-digit pincode.");
+      setError(
+        "Please enter a valid 6-digit pincode."
+      );
       return;
     }
 
     setPaying(true);
 
     try {
+      /*
+       * Generate the idempotency key only once
+       * for this checkout attempt.
+       */
       if (!idempotencyKey.current) {
         idempotencyKey.current =
           window.crypto?.randomUUID?.() ||
-          `${Date.now()}_${Math.random().toString(36).slice(2)}`;
+          `${Date.now()}_${Math.random()
+            .toString(36)
+            .slice(2)}`;
       }
 
       const payload = {
-        cart: cart.map(({ id, size, quantity }) => ({
-          id,
-          size,
-          quantity,
-        })),
+        cart: cart.map(
+          ({ id, size, quantity }) => ({
+            id,
+            size,
+            quantity,
+          })
+        ),
 
         address: {
           name: guest.name.trim(),
-          email: guest.email.trim().toLowerCase(),
+
+          email:
+            guest.email
+              .trim()
+              .toLowerCase(),
+
           phone: guest.phone,
-          addressLine: guest.addressLine.trim(),
-          city: guest.city.trim(),
-          state: guest.state.trim(),
-          pincode: guest.pincode,
-          landmark: guest.landmark.trim(),
+
+          addressLine:
+            guest.addressLine.trim(),
+
+          city:
+            guest.city.trim(),
+
+          state:
+            guest.state.trim(),
+
+          pincode:
+            guest.pincode,
+
+          landmark:
+            guest.landmark.trim(),
         },
 
-        paymentMethod: "RAZORPAY",
+        paymentMethod:
+          "RAZORPAY",
       };
 
-      const response = await fetch("/api/checkout", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-          "Idempotency-Key": idempotencyKey.current,
-        },
-        body: JSON.stringify(payload),
-      });
+      /*
+       * Create local order + Razorpay order.
+       */
+      const response = await fetch(
+        "/api/checkout",
+        {
+          method: "POST",
 
-      const data = await response.json();
+          credentials: "include",
+
+          headers: {
+            "Content-Type":
+              "application/json",
+
+            "Idempotency-Key":
+              idempotencyKey.current,
+          },
+
+          body:
+            JSON.stringify(payload),
+        }
+      );
+
+      const data =
+        await response.json();
 
       if (!response.ok) {
         throw new Error(
-          data?.error || "Unable to start payment."
+          data?.error ||
+            "Unable to start payment."
         );
       }
 
+      /*
+       * Load Razorpay Checkout.
+       */
       if (
         !(await loadRazorpay()) ||
         !window.Razorpay
@@ -203,84 +305,350 @@ export default function CheckoutPage() {
         );
       }
 
-      const razorpay = new window.Razorpay({
-        key: data.key,
-        amount: data.amount,
-        currency: data.currency,
-        name: "Jannat Elegance",
-        description: "Secure order payment",
-        order_id: data.razorpayOrderId,
+      const razorpay =
+        new window.Razorpay({
+          key: data.key,
 
-        prefill: {
-          name: guest.name.trim(),
-          email: guest.email.trim(),
-          contact: guest.phone,
-        },
+          amount:
+            data.amount,
 
-        notes: {
-          orderId: data.orderId,
-          customerOrderId: data.customerOrderId,
-        },
+          currency:
+            data.currency,
 
-        theme: {
-          color: "#5c0620",
-        },
+          name:
+            "Jannat Elegance",
 
-        modal: {
-          ondismiss: () => {
-            setPaying(false);
+          description:
+            "Secure order payment",
+
+          order_id:
+            data.razorpayOrderId,
+
+          prefill: {
+            name:
+              guest.name.trim(),
+
+            email:
+              guest.email.trim(),
+
+            contact:
+              guest.phone,
           },
-        },
 
-        handler: async (
-          payment: RazorpayPaymentResponse
-        ) => {
-          try {
-            const verifyResponse = await fetch(
-              "/api/checkout/verify",
-              {
-                method: "POST",
-                credentials: "include",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(payment),
-              }
+          notes: {
+            orderId:
+              data.orderId,
+
+            customerOrderId:
+              data.customerOrderId,
+          },
+
+          theme: {
+            color: "#5c0620",
+          },
+
+          modal: {
+            ondismiss: () => {
+              console.log(
+                "[RAZORPAY] Checkout dismissed by customer."
+              );
+
+              setPaying(false);
+            },
+          },
+
+          handler: async (
+            payment: RazorpayPaymentResponse
+          ) => {
+            /*
+             * IMPORTANT:
+             * Do NOT clear the cart here.
+             *
+             * Cart is cleared only after backend
+             * successfully verifies the payment.
+             */
+
+            console.log(
+              "========== RAZORPAY PAYMENT SUCCESS =========="
             );
 
-            const verified = await verifyResponse.json();
+            console.log(
+              "Payment ID:",
+              payment.razorpay_payment_id
+            );
 
-            if (!verifyResponse.ok) {
-              throw new Error(
-                verified?.error ||
-                  "Payment verification failed. Please contact support."
+            console.log(
+              "Razorpay Order ID:",
+              payment.razorpay_order_id
+            );
+
+            console.log(
+              "Signature received:",
+              Boolean(
+                payment.razorpay_signature
+              )
+            );
+
+            console.log(
+              "==============================================="
+            );
+
+            try {
+              const verifyResponse =
+                await fetch(
+                  "/api/checkout/verify",
+                  {
+                    method: "POST",
+
+                    credentials:
+                      "include",
+
+                    headers: {
+                      "Content-Type":
+                        "application/json",
+                    },
+
+                    body:
+                      JSON.stringify(
+                        payment
+                      ),
+                  }
+                );
+
+              const verified =
+                await verifyResponse.json();
+
+              if (
+                !verifyResponse.ok
+              ) {
+                throw new Error(
+                  verified?.error ||
+                    "Payment verification failed. Please contact support."
+                );
+              }
+
+              /*
+               * Backend has confirmed payment.
+               * It is now safe to clear the cart.
+               */
+              clearCart();
+
+              router.replace(
+                `/checkout/success?orderId=${encodeURIComponent(
+                  verified.orderId
+                )}`
+              );
+            } catch (
+              verificationError
+            ) {
+              console.error(
+                "========== PAYMENT VERIFICATION ERROR =========="
+              );
+
+              console.error(
+                verificationError
+              );
+
+              console.error(
+                "==============================================="
+              );
+
+              setError(
+                verificationError instanceof
+                  Error
+                  ? verificationError.message
+                  : "Payment verification failed. Please contact support."
+              );
+
+              setPaying(false);
+            }
+          },
+        });
+
+      /*
+       * =====================================================
+       * RAZORPAY PAYMENT FAILED
+       *
+       * This is the important diagnostic section.
+       * =====================================================
+       */
+
+      razorpay.on(
+        "payment.failed",
+        async (
+          response: RazorpayPaymentFailedResponse
+        ) => {
+          const razorpayError =
+            response?.error || {};
+
+          const paymentId =
+            razorpayError?.metadata
+              ?.payment_id;
+
+          const razorpayOrderId =
+            razorpayError?.metadata
+              ?.order_id ||
+            data.razorpayOrderId;
+
+          console.error(
+            "========== RAZORPAY PAYMENT FAILED =========="
+          );
+
+          console.error(
+            "Payment ID:",
+            paymentId || "Not provided"
+          );
+
+          console.error(
+            "Razorpay Order ID:",
+            razorpayOrderId ||
+              "Not provided"
+          );
+
+          console.error(
+            "Error Code:",
+            razorpayError?.code ||
+              "Not provided"
+          );
+
+          console.error(
+            "Error Description:",
+            razorpayError?.description ||
+              "Not provided"
+          );
+
+          console.error(
+            "Error Source:",
+            razorpayError?.source ||
+              "Not provided"
+          );
+
+          console.error(
+            "Error Step:",
+            razorpayError?.step ||
+              "Not provided"
+          );
+
+          console.error(
+            "Error Reason:",
+            razorpayError?.reason ||
+              "Not provided"
+          );
+
+          console.error(
+            "Full Razorpay Error:",
+            razorpayError
+          );
+
+          console.error(
+            "=============================================="
+          );
+
+          /*
+           * Send the failure information to the backend.
+           *
+           * The backend will then call Razorpay's API
+           * using the secret key and fetch the authoritative
+           * payment details.
+           */
+          if (paymentId) {
+            try {
+              const diagnosticResponse =
+                await fetch(
+                  "/api/checkout/payment-failed",
+                  {
+                    method: "POST",
+
+                    credentials:
+                      "include",
+
+                    headers: {
+                      "Content-Type":
+                        "application/json",
+                    },
+
+                    body:
+                      JSON.stringify({
+                        paymentId,
+
+                        orderId:
+                          data.orderId,
+
+                        razorpayOrderId,
+
+                        error: {
+                          code:
+                            razorpayError?.code,
+
+                          description:
+                            razorpayError?.description,
+
+                          source:
+                            razorpayError?.source,
+
+                          step:
+                            razorpayError?.step,
+
+                          reason:
+                            razorpayError?.reason,
+                        },
+                      }),
+                  }
+                );
+
+              /*
+               * Diagnostic failure must never
+               * block the customer's UI.
+               */
+              if (
+                !diagnosticResponse.ok
+              ) {
+                console.warn(
+                  "[RAZORPAY] Backend payment-failed logging request returned:",
+                  diagnosticResponse.status
+                );
+              }
+            } catch (
+              diagnosticError
+            ) {
+              console.warn(
+                "[RAZORPAY] Could not send payment failure diagnostics to backend:",
+                diagnosticError
               );
             }
-
-            /*
-             * Clear cart ONLY after backend confirms payment.
-             */
-            clearCart();
-
-            router.replace(
-              `/checkout/success?orderId=${encodeURIComponent(
-                verified.orderId
-              )}`
+          } else {
+            console.warn(
+              "[RAZORPAY] No payment ID was supplied by Checkout, so backend payment lookup was skipped."
             );
-          } catch (verificationError) {
-            setError(
-              verificationError instanceof Error
-                ? verificationError.message
-                : "Payment verification failed. Please contact support."
-            );
-
-            setPaying(false);
           }
-        },
-      });
 
+          /*
+           * Do NOT clear the cart.
+           */
+          setError(
+            razorpayError?.description ||
+              "Payment failed. Please try again or use another payment method."
+          );
+
+          setPaying(false);
+        }
+      );
+
+      /*
+       * Finally open Razorpay.
+       */
       razorpay.open();
     } catch (reason) {
+      console.error(
+        "========== CHECKOUT ERROR =========="
+      );
+
+      console.error(reason);
+
+      console.error(
+        "===================================="
+      );
+
       setError(
         reason instanceof Error
           ? reason.message
@@ -300,7 +668,9 @@ export default function CheckoutPage() {
           </h1>
 
           <button
-            onClick={() => router.replace("/shop")}
+            onClick={() =>
+              router.replace("/shop")
+            }
             className="mt-6 rounded-full bg-maroon-800 px-6 py-3 text-xs font-bold uppercase tracking-wider text-white"
           >
             Continue Shopping
@@ -323,7 +693,8 @@ export default function CheckoutPage() {
           </h1>
 
           <p className="mt-2 text-sm text-gray-500">
-            Enter your delivery details and complete your payment securely
+            Enter your delivery details and
+            complete your payment securely
             with Razorpay.
           </p>
         </div>
@@ -363,7 +734,8 @@ export default function CheckoutPage() {
             </h2>
 
             <p className="mt-1 text-sm text-gray-500">
-              No account or saved address is required.
+              No account or saved address is
+              required.
             </p>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -377,7 +749,10 @@ export default function CheckoutPage() {
                   autoComplete="name"
                   value={guest.name}
                   onChange={(event) =>
-                    updateGuest("name", event.target.value)
+                    updateGuest(
+                      "name",
+                      event.target.value
+                    )
                   }
                   placeholder="Enter your full name"
                   className="w-full rounded-xl border border-maroon-100 bg-white p-3 text-sm outline-none transition focus:border-maroon-800"
@@ -395,7 +770,10 @@ export default function CheckoutPage() {
                   autoComplete="email"
                   value={guest.email}
                   onChange={(event) =>
-                    updateGuest("email", event.target.value)
+                    updateGuest(
+                      "email",
+                      event.target.value
+                    )
                   }
                   placeholder="you@example.com"
                   className="w-full rounded-xl border border-maroon-100 bg-white p-3 text-sm outline-none transition focus:border-maroon-800"
@@ -482,7 +860,10 @@ export default function CheckoutPage() {
                   autoComplete="address-level2"
                   value={guest.city}
                   onChange={(event) =>
-                    updateGuest("city", event.target.value)
+                    updateGuest(
+                      "city",
+                      event.target.value
+                    )
                   }
                   placeholder="City"
                   className="w-full rounded-xl border border-maroon-100 bg-white p-3 text-sm outline-none transition focus:border-maroon-800"
@@ -499,7 +880,10 @@ export default function CheckoutPage() {
                   autoComplete="address-level1"
                   value={guest.state}
                   onChange={(event) =>
-                    updateGuest("state", event.target.value)
+                    updateGuest(
+                      "state",
+                      event.target.value
+                    )
                   }
                   placeholder="State"
                   className="w-full rounded-xl border border-maroon-100 bg-white p-3 text-sm outline-none transition focus:border-maroon-800"
@@ -530,12 +914,16 @@ export default function CheckoutPage() {
 
             <button
               type="submit"
-              disabled={paying || !cart.length}
+              disabled={
+                paying || !cart.length
+              }
               className="mt-8 w-full rounded-full bg-maroon-800 py-4 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition hover:bg-maroon-950 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {paying
                 ? "Opening Secure Payment..."
-                : `Pay ₹${total.toLocaleString("en-IN")}`}
+                : `Pay ₹${total.toLocaleString(
+                    "en-IN"
+                  )}`}
             </button>
 
             <p className="mt-4 flex items-center justify-center gap-2 text-xs text-gray-500">
@@ -543,7 +931,9 @@ export default function CheckoutPage() {
                 size={15}
                 className="text-green-600"
               />
-              Secure payment powered by Razorpay
+
+              Secure payment powered by
+              Razorpay
             </p>
           </form>
 
@@ -573,12 +963,16 @@ export default function CheckoutPage() {
                     </p>
 
                     <p className="text-xs text-gray-500">
-                      Size {item.size} · Qty {item.quantity}
+                      Size {item.size} · Qty{" "}
+                      {item.quantity}
                     </p>
 
                     <p className="mt-1 text-sm font-bold text-maroon-800">
                       ₹
-                      {(item.price * item.quantity).toLocaleString(
+                      {(
+                        item.price *
+                        item.quantity
+                      ).toLocaleString(
                         "en-IN"
                       )}
                     </p>
@@ -590,24 +984,35 @@ export default function CheckoutPage() {
             <div className="mt-3 space-y-2 border-t border-maroon-100 pt-4 text-sm">
               <p className="flex justify-between text-gray-600">
                 <span>Subtotal</span>
+
                 <span>
-                  ₹{subtotal.toLocaleString("en-IN")}
+                  ₹
+                  {subtotal.toLocaleString(
+                    "en-IN"
+                  )}
                 </span>
               </p>
 
               <p className="flex justify-between text-gray-600">
                 <span>Shipping</span>
+
                 <span>
                   {shipping
-                    ? `₹${shipping.toLocaleString("en-IN")}`
+                    ? `₹${shipping.toLocaleString(
+                        "en-IN"
+                      )}`
                     : "Free"}
                 </span>
               </p>
 
               <p className="flex justify-between pt-2 text-lg font-bold text-maroon-950">
                 <span>Total</span>
+
                 <span>
-                  ₹{total.toLocaleString("en-IN")}
+                  ₹
+                  {total.toLocaleString(
+                    "en-IN"
+                  )}
                 </span>
               </p>
             </div>
