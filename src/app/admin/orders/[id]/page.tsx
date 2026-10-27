@@ -5,8 +5,10 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import AdminShell from '@/components/admin/AdminShell';
+import DelhiveryPanel from '@/components/admin/DelhiveryPanel';
+import type { ShippingInfo } from '@/types/shipping';
 
-type Shipping = { courierName: string; trackingNumber: string; trackingUrl: string };
+type Shipping = ShippingInfo;
 type Order = {
   id: string; customerName: string; customerEmail: string; customerPhone: string; shippingAddress: string; city: string; state: string; postalCode: string;
   items: Array<{ id: string; name: string; price: number; quantity: number; size: string; image: string }>;
@@ -56,6 +58,18 @@ export default function AdminOrderDetailPage() {
       .catch(() => setError('Unable to load order.'));
   }, [orderId]);
 
+  const syncShippingFields = (value: Shipping) => {
+    setCourierName(value?.courierName || '');
+    setCourierChoice(couriers.includes(value?.courierName) ? value.courierName : value?.courierName ? 'Other' : '');
+    setTrackingNumber(value?.trackingNumber || ''); setTrackingUrl(value?.trackingUrl || '');
+  };
+
+  const applyShipmentUpdate = (update: { status: string; shippingInfo: Shipping }) => {
+    setOrder((current) => (current ? { ...current, status: update.status, shippingInfo: update.shippingInfo } : current));
+    setStatus(update.status);
+    syncShippingFields(update.shippingInfo);
+  };
+
   const save = async (event: FormEvent) => {
     event.preventDefault(); setSaving(true); setError(''); setMessage('');
     const effectiveCourier = courierChoice === 'Other' ? courierName : courierChoice;
@@ -85,8 +99,8 @@ export default function AdminOrderDetailPage() {
         </div>
         <div className="rounded-3xl border border-maroon-100 bg-white p-6"><h2 className="font-serif text-xl text-maroon-950">Customer & delivery</h2><p className="mt-4 font-semibold">{order.customerName}</p><p className="text-sm text-gray-600">{order.customerEmail}<br />{order.customerPhone}</p><p className="mt-3 text-sm text-gray-700">{order.shippingAddress}, {order.city}, {order.state} – {order.postalCode}</p></div>
       </section>
-      <aside><form onSubmit={save} className="space-y-4 rounded-3xl border border-maroon-100 bg-white p-6">
-        <h2 className="font-serif text-xl text-maroon-950">Shipping & Delivery</h2>
+      <aside className="space-y-6"><DelhiveryPanel orderId={order.id} orderStatus={order.status} shippingInfo={order.shippingInfo} onUpdated={applyShipmentUpdate} /><form onSubmit={save} className="space-y-4 rounded-3xl border border-maroon-100 bg-white p-6">
+        <h2 className="font-serif text-xl text-maroon-950">Status & Manual Shipping</h2>
         <label className="block text-xs font-bold uppercase text-maroon-900">Order status<select value={status} onChange={(event) => setStatus(event.target.value)} className="mt-1.5 w-full rounded-xl border border-maroon-100 p-3 text-sm font-normal">{statuses.map((item) => <option key={item} value={item}>{label(item)}</option>)}</select></label>
         <label className="block text-xs font-bold uppercase text-maroon-900">Courier name<select value={courierChoice} onChange={(event) => { setCourierChoice(event.target.value); if (event.target.value !== 'Other') setCourierName(event.target.value); }} className="mt-1.5 w-full rounded-xl border border-maroon-100 p-3 text-sm font-normal"><option value="">Select courier</option>{couriers.map((item) => <option key={item}>{item}</option>)}</select></label>
         {courierChoice === 'Other' && <label className="block text-xs font-bold uppercase text-maroon-900">Custom courier<input required value={courierName} onChange={(event) => setCourierName(event.target.value)} className="mt-1.5 w-full rounded-xl border border-maroon-100 p-3 text-sm font-normal" /></label>}

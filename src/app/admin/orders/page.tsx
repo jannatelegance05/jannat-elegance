@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight, CircleX, Search, Trash2 } from 'lucide-react';
 import AdminShell from '@/components/admin/AdminShell';
+import DelhiveryPickupCard from '@/components/admin/DelhiveryPickupCard';
 
 type Order = {
   id: string;
@@ -80,6 +81,7 @@ export default function AdminOrdersPage() {
   };
 
   return <AdminShell title="Order Management">
+    <DelhiveryPickupCard onSynced={load} />
     <div className="mb-5 grid gap-3 md:grid-cols-5">
       <div className="relative md:col-span-2"><Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-maroon-700" /><input value={search} onChange={(event) => { setSearch(event.target.value); setPage(1); }} placeholder="Customer, email or order ID" className="w-full rounded-full border border-maroon-100 bg-white py-3 pl-10 pr-4 text-sm" /></div>
       <select value={status} onChange={(event) => { setStatus(event.target.value); setPage(1); }} className="rounded-full border border-maroon-100 bg-white px-4 text-sm">{statuses.map((item) => <option key={item} value={item}>{item ? label(item) : 'All statuses'}</option>)}</select>

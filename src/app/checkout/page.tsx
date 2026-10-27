@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ShieldCheck, Truck } from "lucide-react";
@@ -126,6 +126,55 @@ export default function CheckoutPage() {
   const [paying, setPaying] =
     useState(false);
 
+  /*
+   * Delhivery pincode serviceability.
+   * Unknown results never block checkout.
+   */
+  const [pincodeCheck, setPincodeCheck] =
+    useState<{
+      pincode: string;
+      state: "checking" | "ok" | "blocked" | "unknown";
+      city?: string;
+    } | null>(null);
+
+  useEffect(() => {
+    const pincode = guest.pincode;
+
+    if (!/^\d{6}$/.test(pincode)) {
+      setPincodeCheck(null);
+      return;
+    }
+
+    setPincodeCheck({ pincode, state: "checking" });
+
+    const controller = new AbortController();
+
+    fetch(
+      `/api/shipping/serviceability?pincode=${pincode}`,
+      { signal: controller.signal }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (!data?.success || !data.checked) {
+          setPincodeCheck({ pincode, state: "unknown" });
+          return;
+        }
+
+        setPincodeCheck({
+          pincode,
+          state: data.prepaid ? "ok" : "blocked",
+          city: data.city,
+        });
+      })
+      .catch((reason) => {
+        if (reason?.name !== "AbortError") {
+          setPincodeCheck({ pincode, state: "unknown" });
+        }
+      });
+
+    return () => controller.abort();
+  }, [guest.pincode]);
+
   const idempotencyKey =
     useRef("");
 
@@ -202,6 +251,16 @@ export default function CheckoutPage() {
     if (!/^\d{6}$/.test(guest.pincode)) {
       setError(
         "Please enter a valid 6-digit pincode."
+      );
+      return;
+    }
+
+    if (
+      pincodeCheck?.pincode === guest.pincode &&
+      pincodeCheck.state === "blocked"
+    ) {
+      setError(
+        "Sorry, we do not deliver to this pincode yet. Please use a different delivery address."
       );
       return;
     }
@@ -724,7 +783,7 @@ export default function CheckoutPage() {
                 </p>
 
                 <p className="font-semibold text-maroon-950">
-                  DTDC · Free Shipping
+                  Delhivery · Free Shipping
                 </p>
               </div>
             </div>
@@ -828,6 +887,29 @@ export default function CheckoutPage() {
                   placeholder="6-digit pincode"
                   className="w-full rounded-xl border border-maroon-100 bg-white p-3 text-sm outline-none transition focus:border-maroon-800"
                 />
+
+                {pincodeCheck?.pincode === guest.pincode && (
+                  <p
+                    className={`mt-1.5 text-xs font-semibold ${
+                      pincodeCheck.state === "blocked"
+                        ? "text-red-600"
+                        : pincodeCheck.state === "ok"
+                          ? "text-green-700"
+                          : "text-gray-500"
+                    }`}
+                  >
+                    {pincodeCheck.state === "checking" &&
+                      "Checking delivery availability…"}
+                    {pincodeCheck.state === "ok" &&
+                      `Delivery available${
+                        pincodeCheck.city
+                          ? ` to ${pincodeCheck.city}`
+                          : ""
+                      } via Delhivery`}
+                    {pincodeCheck.state === "blocked" &&
+                      "Sorry, Delhivery does not deliver to this pincode yet."}
+                  </p>
+                )}
               </div>
 
               <div className="sm:col-span-2">

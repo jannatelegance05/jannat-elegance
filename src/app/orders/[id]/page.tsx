@@ -543,6 +543,8 @@ import {
   Truck,
   Wallet,
 } from "lucide-react";
+import DelhiveryTimeline from "@/components/DelhiveryTimeline";
+import type { DelhiveryShipment } from "@/types/shipping";
 
 /* =========================================================
    TYPES
@@ -562,6 +564,7 @@ type ShippingInfo = {
   courierName?: string;
   trackingNumber?: string;
   trackingUrl?: string;
+  delhivery?: DelhiveryShipment | null;
 };
 
 type StatusHistory = {
@@ -1541,6 +1544,13 @@ export default function OrderDetailsPage() {
 
                     </a>
 
+                  )}
+
+                  {shipping.delhivery && (
+                    <DelhiveryTimeline
+                      shipment={shipping.delhivery}
+                      limit={6}
+                    />
                   )}
 
                 </div>

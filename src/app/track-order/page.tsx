@@ -15,6 +15,8 @@ ExternalLink,
 ReceiptText,
 Sparkles,
 } from 'lucide-react';
+import DelhiveryTimeline from '@/components/DelhiveryTimeline';
+import type { DelhiveryShipment } from '@/types/shipping';
 
 type TrackingStatus =
 | 'confirmed'
@@ -49,6 +51,7 @@ shippingInfo: {
 courierName?: string;
 trackingNumber?: string;
 trackingUrl?: string;
+delhivery?: DelhiveryShipment | null;
 };
 statusHistory: StatusHistory[];
 };
@@ -532,6 +535,14 @@ return ( <main className="min-h-screen bg-[#FFD1DC] py-8 sm:py-12"> <div classNa
                   )}
 
                 </div>
+
+                {order.shippingInfo.delhivery && (
+                  <div className="mt-6 rounded-2xl bg-white/80 p-4">
+                    <DelhiveryTimeline
+                      shipment={order.shippingInfo.delhivery}
+                    />
+                  </div>
+                )}
 
               </div>
 
